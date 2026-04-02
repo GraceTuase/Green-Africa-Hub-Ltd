@@ -246,6 +246,24 @@
       <!-- Order Summary -->
       <div style="background: var(--color-background); border-radius: var(--radius-lg); padding: var(--space-6); margin-bottom: var(--space-6); border: 2px solid var(--color-primary);">
         <h3 style="margin-bottom: var(--space-4); color: var(--color-primary);">Order Summary</h3>
+        
+        <!-- Currency Selector -->
+        <div style="margin-bottom: var(--space-4); text-align: right;">
+          <label for="currency" style="font-weight: 500; margin-right: var(--space-2);">Display Currency:</label>
+          <select id="currency" onchange="updateCurrencyDisplay()" style="padding: var(--space-2); border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface);">
+            <option value="GBP">GBP (£) - Base Currency</option>
+            <option value="USD">USD ($) - US Dollar</option>
+            <option value="EUR">EUR (€) - Euro</option>
+            <option value="NGN">NGN (₦) - Nigerian Naira</option>
+            <option value="GHS">GHS (₵) - Ghana Cedi</option>
+            <option value="JMD">JMD (J$) - Jamaican Dollar</option>
+            <option value="TTD">TTD (TT$) - Trinidad Dollar</option>
+            <option value="BBD">BBD (Bds$) - Barbados Dollar</option>
+            <option value="CAD">CAD (C$) - Canadian Dollar</option>
+            <option value="AUD">AUD (A$) - Australian Dollar</option>
+          </select>
+        </div>
+        
         <div id="orderSummary" style="font-size: 1.1rem; line-height: 1.6;">
           <div style="display: flex; justify-content: space-between; margin-bottom: var(--space-2);">
             <span>Product:</span>
@@ -256,16 +274,25 @@
             <span id="selectedQuantity">-</span>
           </div>
           <div style="display: flex; justify-content: space-between; margin-bottom: var(--space-2);">
-            <span>Subtotal:</span>
+            <span>Subtotal (GBP):</span>
             <span id="subtotal">£0.00</span>
           </div>
           <div style="display: flex; justify-content: space-between; margin-bottom: var(--space-2);">
             <span>VAT (20%):</span>
             <span id="vat">£0.00</span>
           </div>
-          <div style="display: flex; justify-content: space-between; font-weight: 700; font-size: 1.2rem; color: var(--color-primary); border-top: 2px solid var(--color-border); padding-top: var(--space-2); margin-top: var(--space-2);">
-            <span>Total:</span>
-            <span id="total">£0.00</span>
+          <div style="display: flex; justify-content: space-between; margin-bottom: var(--space-2);">
+            <span>Total (GBP):</span>
+            <span id="total" style="font-weight: 700; font-size: 1.2rem; color: var(--color-primary);">£0.00</span>
+          </div>
+          <div id="convertedTotal" style="display: none; border-top: 2px solid var(--color-border); padding-top: var(--space-2); margin-top: var(--space-2);">
+            <div style="display: flex; justify-content: space-between; font-weight: 700; font-size: 1.2rem; color: var(--color-accent);">
+              <span id="convertedCurrencyLabel">Total (USD):</span>
+              <span id="convertedAmount">$0.00</span>
+            </div>
+            <div style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: var(--space-2);">
+              <span id="conversionNote">*Approximate conversion. You will be charged in GBP. Exchange rates updated daily.</span>
+            </div>
           </div>
         </div>
       </div>
@@ -417,6 +444,60 @@ const products = {
   'masterclass-contact': { name: 'Large Organization Masterclass', price: 0, vat: false, custom: true }
 };
 
+// Exchange rates (these would normally come from an API)
+// NOTE: For production, integrate with a real exchange rate API like:
+// - exchangerate-api.com
+// - fixer.io
+// - Open Exchange Rates
+// Update daily for accuracy
+const exchangeRates = {
+  USD: 1.27,    // 1 GBP = 1.27 USD
+  EUR: 1.16,    // 1 GBP = 1.16 EUR
+  NGN: 1900,    // 1 GBP = 1900 NGN
+  GHS: 15.2,     // 1 GBP = 15.2 GHS
+  JMD: 195,      // 1 GBP = 195 JMD
+  TTD: 8.5,      // 1 GBP = 8.5 TTD
+  BBD: 2.5,      // 1 GBP = 2.5 BBD
+  CAD: 1.72,     // 1 GBP = 1.72 CAD
+  AUD: 1.93      // 1 GBP = 1.93 AUD
+};
+
+const currencySymbols = {
+  GBP: '£',
+  USD: '$',
+  EUR: '€',
+  NGN: '₦',
+  GHS: '₵',
+  JMD: 'J$',
+  TTD: 'TT$',
+  BBD: 'Bds$',
+  CAD: 'C$',
+  AUD: 'A$'
+};
+
+// Update currency display
+function updateCurrencyDisplay() {
+  const selectedCurrency = document.getElementById('currency').value;
+  const totalElement = document.getElementById('total');
+  const totalText = totalElement.textContent;
+  
+  // Extract numeric value from GBP total
+  const gbpTotal = parseFloat(totalText.replace('£', ''));
+  
+  if (selectedCurrency === 'GBP' || isNaN(gbpTotal)) {
+    // Hide converted total
+    document.getElementById('convertedTotal').style.display = 'none';
+    return;
+  }
+  
+  // Show converted total
+  document.getElementById('convertedTotal').style.display = 'block';
+  document.getElementById('convertedCurrencyLabel').textContent = `Total (${selectedCurrency}):`;
+  
+  const convertedAmount = gbpTotal * (exchangeRates[selectedCurrency] || 1);
+  document.getElementById('convertedAmount').textContent = `${currencySymbols[selectedCurrency]}${convertedAmount.toFixed(2)}`;
+}
+
 // Update price display
 function updatePrice() {
   const selectedProduct = document.querySelector('input[name="product"]:checked');
@@ -442,6 +523,9 @@ function updatePrice() {
   document.getElementById('subtotal').textContent = `£${subtotal.toFixed(2)}`;
   document.getElementById('vat').textContent = `£${vat.toFixed(2)}`;
   document.getElementById('total').textContent = `£${total.toFixed(2)}`;
+  
+  // Update currency display
+  updateCurrencyDisplay();
   
   // Enable/disable submit button
   document.getElementById('submitBtn').disabled = product.custom;
