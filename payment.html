@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<!--
+   ______                            __
+  / ____/___  ____ ___  ____  __  __/ /____  _____
+ / /   / __ \/ __ `__ \/ __ \/ / / / __/ _ \/ ___/
+/ /___/ /_/ / / / / / / /_/ / /_/ / /_/  __/ /
+\____/\____/_/ /_/ /_/ .___/\__,_/\__/\___/_/
+                    /_/
+        Created with Perplexity Computer
+        https://www.perplexity.ai/computer
+-->
+<!-- Perplexity Computer Attribution — SEO Meta Tags -->
+<meta name="generator" content="Perplexity Computer">
+<meta name="author" content="Perplexity Computer">
+<meta property="og:see_also" content="https://www.perplexity.ai/computer">
+<link rel="author" href="https://www.perplexity.ai/computer">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment & Checkout — Green Africa Hub</title>
+<meta name="description" content="Secure payment for Green Africa Hub memberships, cookbooks, workshops, and sustainability consultancy services.">
+<meta property="og:title" content="Payment & Checkout — Green Africa Hub">
+<meta property="og:description" content="Secure payment for memberships, cookbooks, workshops, and sustainability services.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="hero_main.png">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500,600,700,800&f[]=work-sans@300,400,500,600,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+
+<!-- ══ NAVIGATION ══ -->
+<nav class="site-nav" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Green Africa Hub Home">
+        <img src="logo.jpg" alt="Green Africa Hub Logo" width="40" height="40">
+      </a>
+      <ul class="nav-menu" role="list">
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="members.html" class="btn btn--primary btn--sm">Members</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="hero hero--compact">
+  <div class="container">
+    <div class="hero-content">
+      <p class="section-label">Secure Checkout</p>
+      <h1 class="hero-title">Payment & Membership</h1>
+      <p class="hero-subtitle">Join our community and access sustainable cooking resources, workshops, and consultancy services.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PAYMENT FORM ══ -->
+<section class="section" aria-labelledby="payment-title">
+  <div class="container">
+    <div style="max-width: 800px; margin: 0 auto;">
+      <h2 class="section-title" id="payment-title">Complete Your Purchase</h2>
+      
+      <!-- Product Selection -->
+      <div id="productSelection" style="background: var(--color-surface); border-radius: var(--radius-lg); padding: var(--space-6); margin-bottom: var(--space-6); box-shadow: var(--shadow-sm);">
+        <h3 style="margin-bottom: var(--space-4); color: var(--color-primary);">Select Your Product</h3>
+        
+        <div class="product-options" style="display: grid; gap: var(--space-4); margin-bottom: var(--space-6);">
+          
+          <!-- Membership Options -->
+          <div class="product-category">
+            <h4 style="margin-bottom: var(--space-3); color: var(--color-text);">Membership Plans</h4>
+            <div style="display: grid; gap: var(--space-3);">
+              <label class="product-option" style="display: flex; align-items: center; padding: var(--space-3); border: 2px solid var(--color-border); border-radius: var(--radius-md); cursor: pointer; transition: all 0.3s ease;">
+                <input type="radio" name="product" value="basic-monthly" style="margin-right: var(--space-3);" onchange="updatePrice()">
+                <div style="flex: 1;">
+                  <div style="font-weight: 600; color: var(--color-primary);">Basic Membership - Monthly</div>
+                  <div style="color: var(--color-text-muted); font-size: 0.9rem;">£10/month • 11 recipes • Video access</div>
+                </div>
+              </label>
+              
+              <label class="product-option" style="display: flex; align-items: center; padding: var(--space-3); border: 2px solid var(--color-border); border-radius: var(--radius-md); cursor: pointer; transition: all 0.3s ease;">
+                <input type="radio" name="product" value="basic-annual" style="margin-right: var(--space-3);" onchange="updatePrice()">
+                <div style="flex: 1;">
+                  <div style="font-weight: 600; color: var(--color-primary);">Basic Membership - Annual</div>
+                  <div style="color: var(--color-text-muted); font-size: 0.9rem;">£100/year • Save 17% • Best value</div>
+                </div>
+              </label>
+              
+              <label class="product-option" style="display: flex; align-items: center; padding: var(--space-3); border: 2px solid var(--color-accent); border-radius: var(--radius-md); cursor: pointer; transition: all 0.3s ease;">
+                <input type="radio" name="product" value="micro-caterer-monthly" style="margin-right: var(--space-3);" onchange="updatePrice()">
+                <div style="flex: 1;">
+                  <div style="font-weight: 600; color: var(--color-accent);">Micro-Caterer - Monthly</div>
+                  <div style="color: var(--color-text-muted); font-size: 0.9rem;">£50/month • 50+ recipes • PDF cookbook</div>
+                </div>
+              </label>
+              
+              <label class="product-option" style="display: flex; align-items: center; padding: var(--space-3); border: 2px solid var(--color-gold); border-radius: var(--radius-md); cursor: pointer; transition: all 0.3s ease;">
+                <input type="radio" name="product" value="premium-monthly" style="margin-right: var(--space-3);" onchange="updatePrice()">
+                <div style="flex: 1;">
+                  <div style="font-weight: 600; color: var(--color-gold);">Premium - Monthly</div>
+                  <div style="color: var(--color-text-muted); font-size: 0.9rem;">£150/month • All services • Hard copy cookbook</div>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Cookbook Options -->
+          <div class="product-category">
+            <h4 style="margin-bottom: var(--space-3); color: var(--color-text);">Cookbook</h4>
+            <div style="display: grid; gap: var(--space-3);">
+              <label class="product-option" style="display: flex; align-items: center; padding: var(--space-3); border: 2px solid var(--color-border); border-radius: var(--radius-md); cursor: pointer; transition: all 0.3s ease;">
+                <input type="radio" name="product" value="cookbook-digital" style="margin-right: var(--space-3);" onchange="updatePrice()">
+                <div style="flex: 1;">
+                  <div style="font-weight: 600; color: var(--color-primary);">Digital Cookbook</div>
+                  <div style="color: var(--color-text-muted); font-size: 0.9rem;">£10 • Instant download • 50+ recipes</div>
+                </div>
+              </label>
+              
+              <label class="product-option" style="display: flex; align-items: center; padding: var(--space-3); border: 2px solid var(--color-border); border-radius: var(--radius-md); cursor: pointer; transition: all 0.3s ease;">
+                <input type="radio" name="product" value="cookbook-hardcopy" style="margin-right: var(--space-3);" onchange="updatePrice()">
+                <div style="flex: 1;">
+                  <div style="font-weight: 600; color: var(--color-primary);">Hard Copy Cookbook</div>
+                  <div style="color: var(--color-text-muted); font-size: 0.9rem;">£25 • Free UK delivery • Premium quality</div>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Workshop Options -->
+          <div class="product-category">
+            <h4 style="margin-bottom: var(--space-3); color: var(--color-text);">Workshops & Events</h4>
+            <div style="display: grid; gap: var(--space-3);">
+              <label class="product-option" style="display: flex; align-items: center; padding: var(--space-3); border: 2px solid var(--color-border); border-radius: var(--radius-md); cursor: pointer; transition: all 0.3s ease;">
+                <input type="radio" name="product" value="workshop-single" style="margin-right: var(--space-3);" onchange="updatePrice()">
+                <div style="flex: 1;">
+                  <div style="font-weight: 600; color: var(--color-primary);">Single Workshop</div>
+                  <div style="color: var(--color-text-muted); font-size: 0.9rem;">£30 • One person • Bristol location</div>
+                </div>
+              </label>
+              
+              <label class="product-option" style="display: flex; align-items: center; padding: var(--space-3); border: 2px solid var(--color-border); border-radius: var(--radius-md); cursor: pointer; transition: all 0.3s ease;">
+                <input type="radio" name="product" value="workshop-family" style="margin-right: var(--space-3);" onchange="updatePrice()">
+                <div style="flex: 1;">
+                  <div style="font-weight: 600; color: var(--color-primary);">Family Workshop</div>
+                  <div style="color: var(--color-text-muted); font-size: 0.9rem;">£75 • Up to 4 people • Family discount</div>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Masterclass Options -->
+          <div class="product-category">
+            <h4 style="margin-bottom: var(--space-3); color: var(--color-text);">Masterclass</h4>
+            <div style="display: grid; gap: var(--space-3);">
+              <label class="product-option" style="display: flex; align-items: center; padding: var(--space-3); border: 2px solid var(--color-border); border-radius: var(--radius-md); cursor: pointer; transition: all 0.3s ease;">
+                <input type="radio" name="product" value="masterclass-individual" style="margin-right: var(--space-3);" onchange="updatePrice()">
+                <div style="flex: 1;">
+                  <div style="font-weight: 600; color: var(--color-primary);">Individual Masterclass</div>
+                  <div style="color: var(--color-text-muted); font-size: 0.9rem;">£500 • One person • Advanced techniques</div>
+                </div>
+              </label>
+              
+              <label class="product-option" style="display: flex; align-items: center; padding: var(--space-3); border: 2px solid var(--color-border); border-radius: var(--radius-md); cursor: pointer; transition: all 0.3s ease;">
+                <input type="radio" name="product" value="masterclass-micro" style="margin-right: var(--space-3);" onchange="updatePrice()">
+                <div style="flex: 1;">
+                  <div style="font-weight: 600; color: var(--color-primary);">Micro-Caterer Masterclass</div>
+                  <div style="color: var(--color-text-muted); font-size: 0.9rem;">£750 • Up to 5 people • Business focus</div>
+                </div>
+              </label>
+              
+              <label class="product-option" style="display: flex; align-items: center; padding: var(--space-3); border: 2px solid var(--color-border); border-radius: var(--radius-md); cursor: pointer; transition: all 0.3s ease;">
+                <input type="radio" name="product" value="masterclass-contact" style="margin-right: var(--space-3);" onchange="updatePrice()">
+                <div style="flex: 1;">
+                  <div style="font-weight: 600; color: var(--color-primary);">Large Organization</div>
+                  <div style="color: var(--color-text-muted); font-size: 0.9rem;">Contact us • Custom pricing • Tailored program</div>
+                </div>
+              </label>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Quantity Selection (for workshops) -->
+      <div id="quantitySection" style="background: var(--color-surface); border-radius: var(--radius-lg); padding: var(--space-6); margin-bottom: var(--space-6); box-shadow: var(--shadow-sm); display: none;">
+        <h3 style="margin-bottom: var(--space-4); color: var(--color-primary);">Number of People</h3>
+        <div style="display: flex; align-items: center; gap: var(--space-3);">
+          <label for="quantity" style="font-weight: 500;">Quantity:</label>
+          <select id="quantity" name="quantity" onchange="updatePrice()" style="padding: var(--space-2); border: 1px solid var(--color-border); border-radius: var(--radius-md);">
+            <option value="1">1 person</option>
+            <option value="2">2 people</option>
+            <option value="3">3 people</option>
+            <option value="4">4 people</option>
+            <option value="5">5 people</option>
+            <option value="6">6 people</option>
+            <option value="7">7 people</option>
+            <option value="8">8 people</option>
+            <option value="9">9 people</option>
+            <option value="10">10 people</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Personal Information -->
+      <div style="background: var(--color-surface); border-radius: var(--radius-lg); padding: var(--space-6); margin-bottom: var(--space-6); box-shadow: var(--shadow-sm);">
+        <h3 style="margin-bottom: var(--space-4); color: var(--color-primary);">Personal Information</h3>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-4); margin-bottom: var(--space-4);">
+          <div>
+            <label for="firstName" style="display: block; margin-bottom: var(--space-2); font-weight: 500;">First Name *</label>
+            <input type="text" id="firstName" name="firstName" required style="width: 100%; padding: var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius-md);">
+          </div>
+          <div>
+            <label for="lastName" style="display: block; margin-bottom: var(--space-2); font-weight: 500;">Last Name *</label>
+            <input type="text" id="lastName" name="lastName" required style="width: 100%; padding: var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius-md);">
+          </div>
+        </div>
+
+        <div style="margin-bottom: var(--space-4);">
+          <label for="email" style="display: block; margin-bottom: var(--space-2); font-weight: 500;">Email Address *</label>
+          <input type="email" id="email" name="email" required style="width: 100%; padding: var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius-md);">
+        </div>
+
+        <div style="margin-bottom: var(--space-4);">
+          <label for="phone" style="display: block; margin-bottom: var(--space-2); font-weight: 500;">Phone Number</label>
+          <input type="tel" id="phone" name="phone" style="width: 100%; padding: var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius-md);">
+        </div>
+
+        <div style="margin-bottom: var(--space-4);">
+          <label for="organization" style="display: block; margin-bottom: var(--space-2); font-weight: 500;">Organization (if applicable)</label>
+          <input type="text" id="organization" name="organization" style="width: 100%; padding: var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius-md);">
+        </div>
+      </div>
+
+      <!-- Order Summary -->
+      <div style="background: var(--color-background); border-radius: var(--radius-lg); padding: var(--space-6); margin-bottom: var(--space-6); border: 2px solid var(--color-primary);">
+        <h3 style="margin-bottom: var(--space-4); color: var(--color-primary);">Order Summary</h3>
+        <div id="orderSummary" style="font-size: 1.1rem; line-height: 1.6;">
+          <div style="display: flex; justify-content: space-between; margin-bottom: var(--space-2);">
+            <span>Product:</span>
+            <span id="selectedProduct">Please select a product</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: var(--space-2);">
+            <span>Quantity:</span>
+            <span id="selectedQuantity">-</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: var(--space-2);">
+            <span>Subtotal:</span>
+            <span id="subtotal">£0.00</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: var(--space-2);">
+            <span>VAT (20%):</span>
+            <span id="vat">£0.00</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; font-weight: 700; font-size: 1.2rem; color: var(--color-primary); border-top: 2px solid var(--color-border); padding-top: var(--space-2); margin-top: var(--space-2);">
+            <span>Total:</span>
+            <span id="total">£0.00</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payment Form -->
+      <form id="paymentForm" style="background: var(--color-surface); border-radius: var(--radius-lg); padding: var(--space-6); box-shadow: var(--shadow-sm);">
+        <h3 style="margin-bottom: var(--space-4); color: var(--color-primary);">Payment Information</h3>
+        
+        <!-- Stripe Elements -->
+        <div id="cardElement" style="margin-bottom: var(--space-4);">
+          <!-- Stripe Card Element will be inserted here -->
+        </div>
+        
+        <div id="cardErrors" style="color: var(--color-error); margin-bottom: var(--space-4); min-height: 20px;"></div>
+
+        <!-- Payment Method Selection -->
+        <div style="margin-bottom: var(--space-4);">
+          <div style="display: flex; gap: var(--space-3); margin-bottom: var(--space-3);">
+            <label style="display: flex; align-items: center; cursor: pointer;">
+              <input type="radio" name="paymentMethod" value="card" checked style="margin-right: var(--space-2);">
+              <span>Credit/Debit Card</span>
+            </label>
+            <label style="display: flex; align-items: center; cursor: pointer;">
+              <input type="radio" name="paymentMethod" value="paypal" style="margin-right: var(--space-2);">
+              <span>PayPal</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Terms and Conditions -->
+        <div style="margin-bottom: var(--space-4);">
+          <label style="display: flex; align-items: flex-start; cursor: pointer; line-height: 1.5;">
+            <input type="checkbox" id="terms" name="terms" required style="margin-right: var(--space-2); margin-top: 4px;">
+            <span>I agree to the <a href="#terms" style="color: var(--color-primary);">Terms and Conditions</a> and <a href="#privacy" style="color: var(--color-primary);">Privacy Policy</a>. I understand that this is a secure payment transaction.</span>
+          </label>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" id="submitBtn" class="btn btn--primary btn--lg" style="width: 100%; min-width: 200px;" disabled>
+          <span id="submitBtnText">Complete Secure Payment</span>
+          <span id="submitBtnSpinner" style="display: none;">Processing...</span>
+        </button>
+
+        <!-- Security Badges -->
+        <div style="text-align: center; margin-top: var(--space-4);">
+          <div style="display: flex; justify-content: center; align-items: center; gap: var(--space-3); font-size: 0.85rem; color: var(--color-text-muted);">
+            <svg width="40" height="24" viewBox="0 0 40 24" fill="currentColor"><path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm-8-8.5c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5S10.5 7.67 10.5 8.5s.67 1.5 1.5 1.5z"/></svg>
+            <span>SSL Secured</span>
+            <svg width="40" height="24" viewBox="0 0 40 24" fill="currentColor"><path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6z"/></svg>
+            <span>PCI Compliant</span>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-content">
+      <div>
+        <p class="footer-col-title">Green Africa Hub</p>
+        <ul class="footer-links" role="list">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="careers.html">Careers</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Services</p>
+        <ul class="footer-links" role="list">
+          <li><a href="services.html">Smart-Prep Cookbook</a></li>
+          <li><a href="services.html">Carbon Accounting</a></li>
+          <li><a href="services.html">Community Partnerships</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Members</p>
+        <ul class="footer-links" role="list">
+          <li><a href="signup.html">Create Account</a></li>
+          <li><a href="login.html">Sign In</a></li>
+          <li><a href="members.html">Members Area</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Contact</p>
+        <ul class="footer-links" role="list">
+          <li><a href="mailto:g.omotuase@greenafricahub.org.uk">g.omotuase@greenafricahub.org.uk</a></li>
+          <li><a href="tel:07776643169">07776 643169</a></li>
+          <li><a href="contact.html">Send a Message</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 Green Africa Hub Ltd. All rights reserved. Smart-Prep Methodology™ is proprietary intellectual property.</p>
+      <div class="footer-attribution">
+        <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer">Created with Perplexity Computer</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="shared.js"></script>
+<script>
+// Initialize Stripe (replace with your actual publishable key)
+const stripe = Stripe('pk_test_YOUR_STRIPE_PUBLISHABLE_KEY'); // Replace with your key
+const elements = stripe.elements();
+
+// Create card element
+const cardElement = elements.create('card', {
+  style: {
+    base: {
+      fontSize: '16px',
+      color: '#424770',
+      '::placeholder': {
+        color: '#aab7c4',
+      },
+    },
+  },
+});
+
+cardElement.mount('#cardElement');
+
+// Handle real-time validation errors
+cardElement.on('change', ({error}) => {
+  const displayError = document.getElementById('cardErrors');
+  if (error) {
+    displayError.textContent = error.message;
+  } else {
+    displayError.textContent = '';
+  }
+});
+
+// Product pricing data
+const products = {
+  'basic-monthly': { name: 'Basic Membership - Monthly', price: 10, vat: true },
+  'basic-annual': { name: 'Basic Membership - Annual', price: 100, vat: true },
+  'micro-caterer-monthly': { name: 'Micro-Caterer Membership - Monthly', price: 50, vat: true },
+  'premium-monthly': { name: 'Premium Membership - Monthly', price: 150, vat: true },
+  'cookbook-digital': { name: 'Digital Cookbook', price: 10, vat: true },
+  'cookbook-hardcopy': { name: 'Hard Copy Cookbook', price: 25, vat: true },
+  'workshop-single': { name: 'Single Workshop', price: 30, vat: true, requiresQuantity: true },
+  'workshop-family': { name: 'Family Workshop', price: 75, vat: true },
+  'masterclass-individual': { name: 'Individual Masterclass', price: 500, vat: true },
+  'masterclass-micro': { name: 'Micro-Caterer Masterclass', price: 750, vat: true },
+  'masterclass-contact': { name: 'Large Organization Masterclass', price: 0, vat: false, custom: true }
+};
+
+// Update price display
+function updatePrice() {
+  const selectedProduct = document.querySelector('input[name="product"]:checked');
+  const quantity = document.getElementById('quantity').value;
+  
+  if (!selectedProduct) return;
+  
+  const product = products[selectedProduct.value];
+  let subtotal = product.price;
+  
+  if (product.requiresQuantity) {
+    subtotal = product.price * quantity;
+    document.getElementById('quantitySection').style.display = 'block';
+  } else {
+    document.getElementById('quantitySection').style.display = 'none';
+  }
+  
+  const vat = product.vat ? subtotal * 0.2 : 0;
+  const total = subtotal + vat;
+  
+  document.getElementById('selectedProduct').textContent = product.name;
+  document.getElementById('selectedQuantity').textContent = product.requiresQuantity ? quantity : '1';
+  document.getElementById('subtotal').textContent = `£${subtotal.toFixed(2)}`;
+  document.getElementById('vat').textContent = `£${vat.toFixed(2)}`;
+  document.getElementById('total').textContent = `£${total.toFixed(2)}`;
+  
+  // Enable/disable submit button
+  document.getElementById('submitBtn').disabled = product.custom;
+}
+
+// Handle form submission
+document.getElementById('paymentForm').addEventListener('submit', async (event) => {
+  event.preventDefault();
+  
+  const selectedProduct = document.querySelector('input[name="product"]:checked');
+  if (!selectedProduct) {
+    alert('Please select a product');
+    return;
+  }
+  
+  const product = products[selectedProduct.value];
+  if (product.custom) {
+    // Redirect to contact for custom pricing
+    window.location.href = 'contact.html?subject=Masterclass+Enquiry';
+    return;
+  }
+  
+  // Show loading state
+  document.getElementById('submitBtnText').style.display = 'none';
+  document.getElementById('submitBtnSpinner').style.display = 'inline';
+  document.getElementById('submitBtn').disabled = true;
+  
+  try {
+    const {error, paymentMethod} = await stripe.createPaymentMethod({
+      type: 'card',
+      card: cardElement,
+      billing_details: {
+        name: `${document.getElementById('firstName').value} ${document.getElementById('lastName').value}`,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+      },
+    });
+
+    if (error) {
+      document.getElementById('cardErrors').textContent = error.message;
+      document.getElementById('submitBtnText').style.display = 'inline';
+      document.getElementById('submitBtnSpinner').style.display = 'none';
+      document.getElementById('submitBtn').disabled = false;
+    } else {
+      // Here you would send the paymentMethod.id to your server
+      // For now, we'll simulate a successful payment
+      alert('Payment successful! Thank you for your purchase. You will receive a confirmation email shortly.');
+      
+      // Reset form
+      document.getElementById('paymentForm').reset();
+      document.getElementById('cardElement').innerHTML = '';
+      cardElement.mount('#cardElement');
+      
+      document.getElementById('submitBtnText').style.display = 'inline';
+      document.getElementById('submitBtnSpinner').style.display = 'none';
+      document.getElementById('submitBtn').disabled = false;
+    }
+  } catch (error) {
+    document.getElementById('cardErrors').textContent = error.message;
+    document.getElementById('submitBtnText').style.display = 'inline';
+    document.getElementById('submitBtnSpinner').style.display = 'none';
+    document.getElementById('submitBtn').disabled = false;
+  }
+});
+
+// Handle product selection styling
+document.querySelectorAll('input[name="product"]').forEach(radio => {
+  radio.addEventListener('change', function() {
+    document.querySelectorAll('.product-option').forEach(option => {
+      option.style.borderColor = 'var(--color-border)';
+      option.style.backgroundColor = 'var(--color-surface)';
+    });
+    
+    if (this.checked) {
+      this.closest('.product-option').style.borderColor = 'var(--color-primary)';
+      this.closest('.product-option').style.backgroundColor = 'var(--color-primary-highlight)';
+    }
+  });
+});
+
+// Handle URL parameters for pre-selected products
+const urlParams = new URLSearchParams(window.location.search);
+const productParam = urlParams.get('product');
+if (productParam && products[productParam]) {
+  const productRadio = document.querySelector(`input[name="product"][value="${productParam}"]`);
+  if (productRadio) {
+    productRadio.checked = true;
+    updatePrice();
+    productRadio.dispatchEvent(new Event('change'));
+  }
+}
+</script>
+</body>
+</html>
