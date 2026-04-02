@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<!--
+   ______                            __
+  / ____/___  ____ ___  ____  __  __/ /____  _____
+ / /   / __ \/ __ `__ \/ __ \/ / / / __/ _ \/ ___/
+/ /___/ /_/ / / / / / / /_/ / /_/ / /_/  __/ /
+\____/\____/_/ /_/ /_/ .___/\__,_/\__/\___/_/
+                    /_/
+        Created with Perplexity Computer
+        https://www.perplexity.ai/computer
+-->
+<!-- Perplexity Computer Attribution -->
+<meta name="generator" content="Perplexity Computer">
+<meta name="author" content="Perplexity Computer">
+<meta property="og:see_also" content="https://www.perplexity.ai/computer">
+<link rel="author" href="https://www.perplexity.ai/computer">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign In — Green Africa Hub</title>
+<meta name="description" content="Sign in to your Green Africa Hub account to access Smart-Prep resources, carbon tracking tools, and member content.">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500,600,700,800&f[]=work-sans@300,400,500,600,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.auth-page {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+@media (max-width: 768px) {
+  .auth-page { grid-template-columns: 1fr; }
+  .auth-visual { display: none; }
+}
+.auth-visual {
+  background: linear-gradient(135deg, #0d3b24, #1a5c38);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(var(--space-8), 6vw, var(--space-16));
+  position: relative;
+  overflow: hidden;
+}
+.auth-visual::before {
+  content: '';
+  position: absolute;
+  bottom: -20%;
+  left: -20%;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.03);
+}
+.auth-visual-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-12);
+  text-decoration: none;
+}
+.auth-visual-title {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: white;
+  line-height: 1.2;
+  margin-bottom: var(--space-6);
+}
+.auth-visual-title em { color: #d4b040; font-style: normal; }
+.auth-visual-body {
+  font-size: var(--text-base);
+  color: rgba(255,255,255,0.75);
+  line-height: 1.7;
+  max-width: 40ch;
+}
+.auth-form-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(var(--space-8), 6vw, var(--space-16));
+  background: var(--color-bg);
+}
+.auth-form-inner {
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+}
+.auth-form-title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-2);
+}
+.auth-form-subtitle {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-8);
+}
+.auth-form-subtitle a { color: var(--color-primary); text-decoration: underline; }
+.forgot-link {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  text-align: right;
+  display: block;
+  margin-top: var(--space-2);
+  margin-bottom: var(--space-5);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+.forgot-link:hover { color: var(--color-primary); }
+</style>
+</head>
+<body>
+
+<div class="auth-page">
+
+  <!-- Visual Panel -->
+  <div class="auth-visual">
+    <a href="index.html" class="auth-visual-logo">
+      <img src="logo.jpg" alt="Green Africa Hub" style="width:44px;height:44px;border-radius:4px;object-fit:contain;">
+      <span style="font-family:var(--font-display); font-weight:700; color:white; font-size:var(--text-base);">Green Africa Hub</span>
+    </a>
+    <h2 class="auth-visual-title">Welcome Back to<br>Green Africa <em>Hub</em></h2>
+    <p class="auth-visual-body">
+      Sign in to access your Smart-Prep resources, AI carbon tracker, session bookings, and exclusive member content — all protected and private.
+    </p>
+    <div style="margin-top: var(--space-10); padding: var(--space-5); background: rgba(255,255,255,0.07); border-radius: var(--radius-lg); border: 1px solid rgba(255,255,255,0.1);">
+      <p style="font-size: var(--text-xs); color: rgba(255,255,255,0.6); line-height: 1.6;">
+        "Sustainability is everyone's business — and should be the business of everyone."
+      </p>
+      <p style="font-size: var(--text-xs); color: rgba(255,255,255,0.4); margin-top: var(--space-2);">— Grace Omotuase, Founder</p>
+    </div>
+  </div>
+
+  <!-- Form Panel -->
+  <div class="auth-form-panel">
+    <div class="auth-form-inner">
+      <h1 class="auth-form-title">Sign In</h1>
+      <p class="auth-form-subtitle">Don't have an account? <a href="signup.html">Join for free</a></p>
+
+      <form id="loginForm">
+        <div class="form-group">
+          <label class="form-label" for="email">Email Address *</label>
+          <input class="form-control" type="email" id="email" name="email" required placeholder="your@email.com" autocomplete="email">
+        </div>
+
+        <div class="form-group" style="margin-bottom:0">
+          <label class="form-label" for="password">Password *</label>
+          <input class="form-control" type="password" id="password" name="password" required placeholder="Your password" autocomplete="current-password">
+        </div>
+        <a href="#" class="forgot-link">Forgot your password?</a>
+
+        <button type="submit" class="btn btn--primary" style="width:100%; justify-content:center; font-size:var(--text-base); margin-bottom:var(--space-4);">
+          Sign In
+        </button>
+
+        <div id="loginSuccess" class="form-success"></div>
+
+        <div style="text-align:center; margin-top:var(--space-6); padding-top:var(--space-6); border-top:1px solid var(--color-divider);">
+          <p style="font-size:var(--text-sm); color:var(--color-text-muted); margin-bottom:var(--space-3);">Not yet a member?</p>
+          <a href="signup.html" class="btn btn--outline" style="width:100%; justify-content:center;">Create a Free Account</a>
+        </div>
+
+        <p style="font-size:var(--text-xs); color:var(--color-text-faint); text-align:center; margin-top:var(--space-5); line-height:1.5;">
+          Green Africa Hub Ltd · Company No. 17107299<br>Your data is protected under UK GDPR
+        </p>
+      </form>
+    </div>
+  </div>
+
+</div>
+
+<script src="shared.js"></script>
+<script>
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const btn = this.querySelector('button[type="submit"]');
+  const success = document.getElementById('loginSuccess');
+  btn.disabled = true;
+  btn.textContent = 'Signing in…';
+  setTimeout(function() {
+    success.style.display = 'block';
+    success.textContent = 'Welcome back! Redirecting to your members area…';
+    setTimeout(function() { window.location.href = 'members.html'; }, 1500);
+  }, 1000);
+});
+</script>
+</body>
+</html>
