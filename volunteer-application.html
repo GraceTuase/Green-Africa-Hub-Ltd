@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Volunteer Application — Green Africa Hub</title>
+<meta name="description" content="Apply to volunteer with Green Africa Hub and help us sustain heritage while powering the future through sustainable cooking initiatives.">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500,600,700,800&f[]=work-sans@300,400,500,600,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ══ NAVIGATION ══ -->
+<nav class="site-nav" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Green Africa Hub Home">
+        <img src="logo.jpg" alt="Green Africa Hub Logo" width="40" height="40">
+      </a>
+      <ul class="nav-menu" role="list">
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="members.html" class="btn btn--primary btn--sm">Members</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="hero hero--compact">
+  <div class="container">
+    <div class="hero-content">
+      <p class="section-label">Join Our Community</p>
+      <h1 class="hero-title">Volunteer Application</h1>
+      <p class="hero-subtitle">Help us make sustainable cooking accessible to African and Caribbean communities across the UK.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ APPLICATION FORM ══ -->
+<section class="section" aria-labelledby="application-title">
+  <div class="container">
+    <div style="max-width: 800px; margin: 0 auto;">
+      <h2 class="section-title" id="application-title">Volunteer Application Form</h2>
+      
+      <div style="background: var(--color-gold-highlight); border: 1px solid var(--color-gold); border-radius: var(--radius-md); padding: var(--space-4); margin-bottom: var(--space-6);">
+        <h3 style="color: var(--color-gold); margin-bottom: var(--space-2);">📋 Important Information</h3>
+        <p style="margin: 0; line-height: 1.6;">This form collects personal information in accordance with UK GDPR. Please read our privacy policy before submitting. Your data will be used solely for volunteer recruitment and management purposes.</p>
+      </div>
+
+      <form id="volunteerForm" action="https://docs.google.com/forms/d/e/YOUR_GOOGLE_FORM_ID/formResponse" method="POST" target="_blank" onsubmit="return handleFormSubmit(event)">
+        
+        <!-- Personal Information -->
+        <div style="background: var(--color-surface); border-radius: var(--radius-lg); padding: var(--space-6); margin-bottom: var(--space-6); box-shadow: var(--shadow-sm);">
+          <h3 style="margin-bottom: var(--space-4); color: var(--color-primary);">Personal Information</h3>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-4); margin-bottom: var(--space-4);">
+            <div>
+              <label for="firstName" style="display: block; margin-bottom: var(--space-2); font-weight: 500;">First Name *</label>
+              <input type="text" id="firstName" name="entry.1234567890" required style="width: 100%; padding: var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius-md);">
+            </div>
+            <div>
+              <label for="lastName" style="display: block; margin-bottom: var(--space-2); font-weight: 500;">Last Name *</label>
+              <input type="text" id="lastName" name="entry.1234567891" required style="width: 100%; padding: var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius-md);">
+            </div>
+          </div>
+
+          <div style="margin-bottom: var(--space-4);">
+            <label for="email" style="display: block; margin-bottom: var(--space-2); font-weight: 500;">Email Address *</label>
+            <input type="email" id="email" name="entry.1234567892" required style="width: 100%; padding: var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius-md);">
+          </div>
+
+          <div style="margin-bottom: var(--space-4);">
+            <label for="phone" style="display: block; margin-bottom: var(--space-2); font-weight: 500;">Phone Number</label>
+            <input type="tel" id="phone" name="entry.1234567893" style="width: 100%; padding: var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius-md);">
+          </div>
+
+          <div style="margin-bottom: var(--space-4);">
+            <label for="dateOfBirth" style="display: block; margin-bottom: var(--space-2); font-weight: 500;">Date of Birth *</label>
+            <input type="date" id="dateOfBirth" name="entry.1234567894" required style="width: 100%; padding: var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius-md);">
+          </div>
+        </div>
+
+        <!-- Diversity & Inclusion Information -->
+        <div style="background: var(--color-surface); border-radius: var(--radius-lg); padding: var(--space-6); margin-bottom: var(--space-6); box-shadow: var(--shadow-sm);">
+          <h3 style="margin-bottom: var(--space-4); color: var(--color-primary);">Diversity & Inclusion Information</h3>
+          <p style="margin-bottom: var(--space-4); color: var(--color-text-muted); font-size: 0.9rem;">This information helps us ensure our volunteer program is inclusive and accessible. All information is voluntary and will be treated confidentially.</p>
+          
+          <div style="margin-bottom: var(--space-4);">
+            <label for="ethnicity" style="display: block; margin-bottom: var(--space-2); font-weight: 500;">Ethnicity *</label>
+            <select id="ethnicity" name="entry.1234567895" required style="width: 100%; padding: var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius-md);">
+              <option value="">Please select</option>
+              <option value="white">White - British, Irish, Other White</option>
+              <option value="mixed">Mixed - White & Black Caribbean, White & Black African, White & Asian, Other Mixed</option>
+              <option value="asian">Asian - Indian, Pakistani, Bangladeshi, Other Asian</option>
+              <option value="black">Black - Caribbean, African, Other Black</option>
+              <option value="other">Other Ethnic Group</option>
+              <option value="prefer-not-to-say">Prefer not to say</option>
+            </select>
+          </div>
+
+          <div style="margin-bottom: var(--space-4);">
+            <label for="disability" style="display: block; margin-bottom: var(--space-2); font-weight: 500;">Do you consider yourself to have a disability? *</label>
+            <select id="disability" name="entry.1234567896" required style="width: 100%; padding: var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius-md);">
+              <option value="">Please select</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+              <option value="prefer-not-to-say">Prefer not to say</option>
+            </select>
+          </div>
+
+          <div style="margin-bottom: var(--space-4);">
+            <label for="accessNeeds" style="display: block; margin-bottom: var(--space-2); font-weight: 500;">Access Needs or Adjustments</label>
+            <textarea id="accessNeeds" name="entry.1234567897" rows="4" placeholder="Please let us know if you need any adjustments to participate fully in our volunteer program..." style="width: 100%; padding: var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius-md); resize: vertical;"></textarea>
+          </div>
+
+          <div style="margin-bottom: var(--space-4);">
+            <label for="foodRequirements" style="display: block; margin-bottom: var(--space-2); font-weight: 500;">Dietary Requirements or Food Allergies</label>
+            <textarea id="foodRequirements" name="entry.1234567898" rows="4" placeholder="Please inform us of any dietary requirements or food allergies we should be aware of..." style="width: 100%; padding: var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius-md); resize: vertical;"></textarea>
+          </div>
+        </div>
+
+        <!-- Volunteer Preferences -->
+        <div style="background: var(--color-surface); border-radius: var(--radius-lg); padding: var(--space-6); margin-bottom: var(--space-6); box-shadow: var(--shadow-sm);">
+          <h3 style="margin-bottom: var(--space-4); color: var(--color-primary);">Volunteer Preferences</h3>
+          
+          <div style="margin-bottom: var(--space-4);">
+            <label style="display: block; margin-bottom: var(--space-2); font-weight: 500;">Areas of Interest *</label>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-3);">
+              <label style="display: flex; align-items: center; cursor: pointer;">
+                <input type="checkbox" name="entry.1234567899" value="cooking-workshops" style="margin-right: var(--space-2);">
+                <span>Cooking Workshops</span>
+              </label>
+              <label style="display: flex; align-items: center; cursor: pointer;">
+                <input type="checkbox" name="entry.1234567900" value="community-outreach" style="margin-right: var(--space-2);">
+                <span>Community Outreach</span>
+              </label>
+              <label style="display: flex; align-items: center; cursor: pointer;">
+                <input type="checkbox" name="entry.1234567901" value="social-media" style="margin-right: var(--space-2);">
+                <span>Social Media & Content</span>
+              </label>
+              <label style="display: flex; align-items: center; cursor: pointer;">
+                <input type="checkbox" name="entry.1234567902" value="events" style="margin-right: var(--space-2);">
+                <span>Event Support</span>
+              </label>
+              <label style="display: flex; align-items: center; cursor: pointer;">
+                <input type="checkbox" name="entry.1234567903" value="admin" style="margin-right: var(--space-2);">
+                <span>Administrative Support</span>
+              </label>
+              <label style="display: flex; align-items: center; cursor: pointer;">
+                <input type="checkbox" name="entry.1234567904" value="fundraising" style="margin-right: var(--space-2);">
+                <span>Fundraising</span>
+              </label>
+            </div>
+          </div>
+
+          <div style="margin-bottom: var(--space-4);">
+            <label for="availability" style="display: block; margin-bottom: var(--space-2); font-weight: 500;">Availability *</label>
+            <select id="availability" name="entry.1234567905" required style="width: 100%; padding: var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius-md);">
+              <option value="">Please select</option>
+              <option value="weekdays">Weekdays</option>
+              <option value="evenings">Evenings</option>
+              <option value="weekends">Weekends</option>
+              <option value="flexible">Flexible</option>
+            </select>
+          </div>
+
+          <div style="margin-bottom: var(--space-4);">
+            <label for="motivation" style="display: block; margin-bottom: var(--space-2); font-weight: 500;">Why do you want to volunteer with Green Africa Hub? *</label>
+            <textarea id="motivation" name="entry.1234567906" rows="6" required placeholder="Tell us about your motivation and what you hope to gain from volunteering with us..." style="width: 100%; padding: var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius-md); resize: vertical;"></textarea>
+          </div>
+
+          <div style="margin-bottom: var(--space-4);">
+            <label for="experience" style="display: block; margin-bottom: var(--space-2); font-weight: 500;">Relevant Experience or Skills</label>
+            <textarea id="experience" name="entry.1234567907" rows="6" placeholder="Please share any relevant experience, skills, or qualifications that would be valuable for your volunteer role..." style="width: 100%; padding: var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius-md); resize: vertical;"></textarea>
+          </div>
+        </div>
+
+        <!-- GDPR Consent -->
+        <div style="background: var(--color-surface); border-radius: var(--radius-lg); padding: var(--space-6); margin-bottom: var(--space-6); box-shadow: var(--shadow-sm); border: 2px solid var(--color-primary);">
+          <h3 style="margin-bottom: var(--space-4); color: var(--color-primary);">🔒 Data Protection & Consent</h3>
+          
+          <div style="margin-bottom: var(--space-4);">
+            <label style="display: flex; align-items: flex-start; cursor: pointer; line-height: 1.5;">
+              <input type="checkbox" id="dataConsent" name="entry.1234567908" required style="margin-right: var(--space-2); margin-top: 4px;">
+              <span>I consent to Green Africa Hub processing my personal data in accordance with the UK General Data Protection Regulation (GDPR). I understand that my data will be used solely for volunteer recruitment, management, and communication purposes, and that I have the right to request access to or deletion of my data at any time. *</span>
+            </label>
+          </div>
+
+          <div style="margin-bottom: var(--space-4);">
+            <label style="display: flex; align-items: flex-start; cursor: pointer; line-height: 1.5;">
+              <input type="checkbox" id="marketingConsent" name="entry.1234567909" style="margin-right: var(--space-2); margin-top: 4px;">
+              <span>I consent to receiving marketing communications from Green Africa Hub about events, workshops, and opportunities. (Optional - you can unsubscribe at any time)</span>
+            </label>
+          </div>
+
+          <div style="margin-bottom: var(--space-4);">
+            <label style="display: flex; align-items: flex-start; cursor: pointer; line-height: 1.5;">
+              <input type="checkbox" id="photoConsent" name="entry.1234567910" style="margin-right: var(--space-2); margin-top: 4px;">
+              <span>I consent to Green Africa Hub using photographs or videos of me (if taken during volunteer activities) for promotional purposes, including social media, website, and marketing materials. (Optional)</span>
+            </label>
+          </div>
+
+          <div style="background: var(--color-background); padding: var(--space-4); border-radius: var(--radius-md);">
+            <p style="margin: 0; font-size: 0.9rem; color: var(--color-text-muted);">
+              <strong>Your Rights:</strong> Under UK GDPR, you have the right to access, rectify, erase, or restrict processing of your personal data. To exercise these rights, please contact us at g.omotuase@greenafricahub.org.uk.
+            </p>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div style="text-align: center;">
+          <button type="submit" class="btn btn--primary btn--lg" style="min-width: 200px;">
+            Submit Application
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-content">
+      <div>
+        <p class="footer-col-title">Green Africa Hub</p>
+        <ul class="footer-links" role="list">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="careers.html">Careers</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Services</p>
+        <ul class="footer-links" role="list">
+          <li><a href="services.html">Smart-Prep Cookbook</a></li>
+          <li><a href="services.html">Carbon Accounting</a></li>
+          <li><a href="services.html">Community Partnerships</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Members</p>
+        <ul class="footer-links" role="list">
+          <li><a href="signup.html">Create Account</a></li>
+          <li><a href="login.html">Sign In</a></li>
+          <li><a href="members.html">Members Area</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Contact</p>
+        <ul class="footer-links" role="list">
+          <li><a href="mailto:g.omotuase@greenafricahub.org.uk">g.omotuase@greenafricahub.org.uk</a></li>
+          <li><a href="tel:07776643169">07776 643169</a></li>
+          <li><a href="contact.html">Send a Message</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 Green Africa Hub Ltd. All rights reserved. Smart-Prep Methodology™ is proprietary intellectual property.</p>
+      <div class="footer-attribution">
+        <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer">Created with Perplexity Computer</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="shared.js"></script>
+<script>
+function handleFormSubmit(event) {
+  event.preventDefault();
+  
+  // Validate required fields
+  const requiredFields = ['firstName', 'lastName', 'email', 'dateOfBirth', 'ethnicity', 'disability', 'availability', 'motivation', 'dataConsent'];
+  let isValid = true;
+  
+  requiredFields.forEach(fieldId => {
+    const field = document.getElementById(fieldId);
+    if (!field.value || (field.type === 'checkbox' && !field.checked)) {
+      isValid = false;
+      field.style.borderColor = 'var(--color-error)';
+    } else {
+      field.style.borderColor = 'var(--color-border)';
+    }
+  });
+  
+  if (!isValid) {
+    alert('Please fill in all required fields and provide consent for data processing.');
+    return false;
+  }
+  
+  // Show loading state
+  const submitBtn = event.target.querySelector('button[type="submit"]');
+  const originalText = submitBtn.textContent;
+  submitBtn.textContent = 'Submitting...';
+  submitBtn.disabled = true;
+  
+  // Submit form
+  event.target.submit();
+  
+  // Show success message
+  setTimeout(() => {
+    alert('Thank you for your volunteer application! We will review your submission and contact you within 5-7 working days.');
+    submitBtn.textContent = originalText;
+    submitBtn.disabled = false;
+  }, 1000);
+  
+  return true;
+}
+</script>
+</body>
+</html>
