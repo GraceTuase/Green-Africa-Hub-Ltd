@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Member Dashboard - Green Africa Hub</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="canonical" href="https://greenafricahub.org.uk/member-dashboard">
+  <meta name="description" content="Access your Green Africa Hub membership benefits, recipes, AI dashboard, and exclusive member services.">
+  
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Member Dashboard - Green Africa Hub",
+    "description": "Access your Green Africa Hub membership benefits, recipes, AI dashboard, and exclusive member services.",
+    "url": "https://greenafricahub.org.uk/member-dashboard",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Green Africa Hub Ltd",
+      "url": "https://greenafricahub.org.uk"
+    }
+  }
+  </script>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav-brand">
+        <a href="index.html" class="nav-logo" aria-label="Green Africa Hub home">
+          <img src="images/logo.jpg" alt="Green Africa Hub Logo" style="height: 40px;">
+        </a>
+        <span class="nav-text">Green Africa Hub</span>
+      </div>
+      <ul class="nav-links" role="menubar">
+        <li role="none"><a href="index.html" role="menuitem">Home</a></li>
+        <li role="none"><a href="membership.html" role="menuitem">Membership</a></li>
+        <li role="none"><a href="events-2026.html" role="menuitem">2026 Events</a></li>
+        <li role="none"><a href="cookbook.html" role="menuitem">Cookbook</a></li>
+        <li role="none"><a href="ai-dashboard.html" role="menuitem">AI Dashboard</a></li>
+        <li role="none"><a href="contact.html" role="menuitem">Contact</a></li>
+        <li role="none"><a href="member-dashboard.html" class="nav-link--active" role="menuitem">Dashboard</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn--outline btn--sm">Sign Out</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" style="background: linear-gradient(135deg, var(--color-accent), var(--color-primary));">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">Welcome to Your Dashboard</h1>
+        <p class="hero-subtitle">Access your membership benefits, recipes, AI tools, and exclusive services</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Membership Status -->
+  <section class="section">
+    <div class="container">
+      <div style="background: var(--color-surface); border-radius: var(--radius-lg); padding: var(--space-6); margin-bottom: var(--space-8); border: 2px solid var(--color-accent);">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-4);">
+          <div>
+            <h2 style="margin-bottom: var(--space-2); color: var(--color-accent);">Your Membership Status</h2>
+            <div id="membership-tier" style="font-size: 1.5rem; font-weight: 700; margin-bottom: var(--space-2);">Pro Membership</div>
+            <div id="membership-status" style="color: var(--color-success); font-weight: 600;">Active • Member since March 2026</div>
+          </div>
+          <div style="text-align: right;">
+            <div style="font-size: 2rem; font-weight: 700; color: var(--color-accent);">£50</div>
+            <div style="color: var(--color-text-muted);">per month</div>
+            <a href="payment.html" class="btn btn--accent" style="margin-top: var(--space-2);">Upgrade Plan</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Access Grid -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Quick Access</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-6);">
+        
+        <!-- Cookbook Access -->
+        <div class="card" style="padding: var(--space-6); text-align: center; border: 2px solid var(--color-primary);">
+          <div style="font-size: 3rem; margin-bottom: var(--space-3);">📚</div>
+          <h3 style="margin-bottom: var(--space-2); color: var(--color-primary);">Recipe Cookbook</h3>
+          <p style="color: var(--color-text-muted); margin-bottom: var(--space-4);">Access 50 carbon-tested recipes with nutritional data and carbon footprints</p>
+          <div class="access-badge" style="background: var(--color-success-highlight); color: var(--color-success); padding: 4px 8px; border-radius: 12px; font-size: 0.8rem; margin-bottom: var(--space-3);">✅ Full Access</div>
+          <a href="cookbook.html" class="btn btn--primary" style="width: 100%;">Open Cookbook</a>
+        </div>
+
+        <!-- AI Dashboard -->
+        <div class="card" style="padding: var(--space-6); text-align: center; border: 2px solid var(--color-accent);">
+          <div style="font-size: 3rem; margin-bottom: var(--space-3);">🤖</div>
+          <h3 style="margin-bottom: var(--space-2); color: var(--color-accent);">AI Smart Prep Dashboard</h3>
+          <p style="color: var(--color-text-muted); margin-bottom: var(--space-4);">Python + Power BI tools for carbon tracking, recipe optimization, and business analytics</p>
+          <div class="access-badge" style="background: var(--color-success-highlight); color: var(--color-success); padding: 4px 8px; border-radius: 12px; font-size: 0.8rem; margin-bottom: var(--space-3);">✅ Full Access</div>
+          <a href="ai-dashboard.html" class="btn btn--accent" style="width: 100%;">Open AI Dashboard</a>
+        </div>
+
+        <!-- Event Booking -->
+        <div class="card" style="padding: var(--space-6); text-align: center; border: 2px solid var(--color-gold);">
+          <div style="font-size: 3rem; margin-bottom: var(--space-3);">🎫</div>
+          <h3 style="margin-bottom: var(--space-2); color: var(--color-gold);">Event Booking</h3>
+          <p style="color: var(--color-text-muted); margin-bottom: var(--space-4);">Book your spots for 2026 events with 50% member discount and priority access</p>
+          <div class="access-badge" style="background: var(--color-success-highlight); color: var(--color-success); padding: 4px 8px; border-radius: 12px; font-size: 0.8rem; margin-bottom: var(--space-3);">✅ 50% Discount</div>
+          <a href="events-2026.html" class="btn btn--accent" style="width: 100%; background: var(--color-gold); border: none;">Book Events</a>
+        </div>
+
+        <!-- Bulk Sharing -->
+        <div class="card" style="padding: var(--space-6); text-align: center; border: 2px solid var(--color-success);">
+          <div style="font-size: 3rem; margin-bottom: var(--space-3);">🤝</div>
+          <h3 style="margin-bottom: var(--space-2); color: var(--color-success);">Bulk Sharing</h3>
+          <p style="color: var(--color-text-muted); margin-bottom: var(--space-4);">Join food, grocery, and protein bulk sharing with workshop access at market prices</p>
+          <div class="access-badge" style="background: var(--color-success-highlight); color: var(--color-success); padding: 4px 8px; border-radius: 12px; font-size: 0.8rem; margin-bottom: var(--space-3);">✅ Active Access</div>
+          <a href="#" class="btn btn--success" style="width: 100%; background: var(--color-success); border: none;">Join Bulk Sharing</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Detailed Benefits Section -->
+  <section class="section section--alt">
+    <div class="container">
+      <h2 class="section-title">Your Membership Benefits</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-6);">
+        
+        <!-- Recipe Access -->
+        <div class="benefit-card" style="background: var(--color-surface); border-radius: var(--radius-lg); padding: var(--space-6);">
+          <h3 style="margin-bottom: var(--space-3); color: var(--color-primary);">🍽️ Recipe Library</h3>
+          <ul style="margin: 0; padding-left: var(--space-4); color: var(--color-text-muted);">
+            <li style="margin-bottom: var(--space-2);">✅ 50 carbon-tested recipes</li>
+            <li style="margin-bottom: var(--space-2);">✅ Nutritional information for each recipe</li>
+            <li style="margin-bottom: var(--space-2);">✅ Carbon footprint data (DEFRA compliant)</li>
+            <li style="margin-bottom: var(--space-2);">✅ Energy saving cooking tips</li>
+            <li style="margin-bottom: var(--space-2);">✅ Cultural heritage notes</li>
+            <li>✅ Video cooking demonstrations</li>
+          </ul>
+        </div>
+
+        <!-- AI Tools -->
+        <div class="benefit-card" style="background: var(--color-surface); border-radius: var(--radius-lg); padding: var(--space-6);">
+          <h3 style="margin-bottom: var(--space-3); color: var(--color-accent);">🤖 AI Analytics Suite</h3>
+          <ul style="margin: 0; padding-left: var(--space-4); color: var(--color-text-muted);">
+            <li style="margin-bottom: var(--space-2);">✅ Real-time carbon accounting dashboard</li>
+            <li style="margin-bottom: var(--space-2);">✅ Recipe performance analytics</li>
+            <li style="margin-bottom: var(--space-2);">✅ Business intelligence tools</li>
+            <li style="margin-bottom: var(--space-2);">✅ Supply chain monitoring</li>
+            <li style="margin-bottom: var(--space-2);">✅ Energy usage tracking</li>
+            <li>✅ Export capabilities for reports</li>
+          </ul>
+        </div>
+
+        <!-- Event Benefits -->
+        <div class="benefit-card" style="background: var(--color-surface); border-radius: var(--radius-lg); padding: var(--space-6);">
+          <h3 style="margin-bottom: var(--space-3); color: var(--color-gold);">🎉 Event Privileges</h3>
+          <ul style="margin: 0; padding-left: var(--space-4); color: var(--color-text-muted);">
+            <li style="margin-bottom: var(--space-2);">✅ 50% discount on all 2026 events</li>
+            <li style="margin-bottom: var(--space-2);">✅ Priority booking access</li>
+            <li style="margin-bottom: var(--space-2);">✅ Event catering partnership opportunities</li>
+            <li style="margin-bottom: var(--space-2);">✅ VIP seating at premium events</li>
+            <li style="margin-bottom: var(--space-2);">✅ Exclusive networking sessions</li>
+            <li>✅ Free December event (6+ months membership)</li>
+          </ul>
+        </div>
+
+        <!-- Community Access -->
+        <div class="benefit-card" style="background: var(--color-surface); border-radius: var(--radius-lg); padding: var(--space-6);">
+          <h3 style="margin-bottom: var(--space-3); color: var(--color-success);">👥 Community Access</h3>
+          <ul style="margin: 0; padding-left: var(--space-4); color: var(--color-text-muted);">
+            <li style="margin-bottom: var(--space-2);">✅ Bi-weekly African Caribbean buffet</li>
+            <li style="margin-bottom: var(--space-2);">✅ 1 carton net-zero zobo drink monthly</li>
+            <li style="margin-bottom: var(--space-2);">✅ Bulk sharing access (foods, groceries, proteins)</li>
+            <li style="margin-bottom: var(--space-2);">✅ Workshop space access at market prices</li>
+            <li style="margin-bottom: var(--space-2);">✅ Doorstep delivery (extra cost)</li>
+            <li>✅ Micro-caterer bidding opportunities</li>
+          </ul>
+        </div>
+
+        <!-- Training & Development -->
+        <div class="benefit-card" style="background: var(--color-surface); border-radius: var(--radius-lg); padding: var(--space-6);">
+          <h3 style="margin-bottom: var(--space-3); color: var(--color-primary);">🎓 Training Programs</h3>
+          <ul style="margin: 0; padding-left: var(--space-4); color: var(--color-text-muted);">
+            <li style="margin-bottom: var(--space-2);">✅ 3-day sustainability & event catering training</li>
+            <li style="margin-bottom: var(--space-2);">✅ Free carbon badge development</li>
+            <li style="margin-bottom: var(--space-2);">✅ Carbon footprint calculation tools</li>
+            <li style="margin-bottom: var(--space-2);">✅ Business sustainability consulting</li>
+            <li style="margin-bottom: var(--space-2);">✅ Workshop participation certificates</li>
+            <li>✅ Advanced cooking technique videos</li>
+          </ul>
+        </div>
+
+        <!-- Business Support -->
+        <div class="benefit-card" style="background: var(--color-surface); border-radius: var(--radius-lg); padding: var(--space-6);">
+          <h3 style="margin-bottom: var(--space-3); color: var(--color-accent);">💼 Business Support</h3>
+          <ul style="margin: 0; padding-left: var(--space-4); color: var(--color-text-muted);">
+            <li style="margin-bottom: var(--space-2);">✅ Event catering partnership opportunities</li>
+            <li style="margin-bottom: var(--space-2);">✅ Business sustainability consulting</li>
+            <li style="margin-bottom: var(--space-2);">✅ Supply chain partnership access</li>
+            <li style="margin-bottom: var(--space-2);">✅ Custom recipe development support</li>
+            <li style="margin-bottom: var(--space-2);">✅ One-on-one business consulting</li>
+            <li>✅ Mutual business benefit partnerships</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Recent Activity -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Your Recent Activity</h2>
+      <div style="background: var(--color-surface); border-radius: var(--radius-lg); padding: var(--space-6);">
+        <div style="display: grid; gap: var(--space-4);">
+          <div style="padding: var(--space-4); border-left: 4px solid var(--color-success); background: var(--color-background);">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <div style="font-weight: 600; color: var(--color-success);">✅ Recipe Accessed</div>
+                <div style="color: var(--color-text-muted); font-size: 0.9rem;">Jollof Rice & Chicken - Carbon footprint: 0.8kg CO2</div>
+              </div>
+              <div style="color: var(--color-text-muted); font-size: 0.8rem;">2 hours ago</div>
+            </div>
+          </div>
+          
+          <div style="padding: var(--space-4); border-left: 4px solid var(--color-accent); background: var(--color-background);">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <div style="font-weight: 600; color: var(--color-accent);">🤖 AI Dashboard Used</div>
+                <div style="color: var(--color-text-muted); font-size: 0.9rem;">Carbon tracking analysis - 15% energy reduction identified</div>
+              </div>
+              <div style="color: var(--color-text-muted); font-size: 0.8rem;">1 day ago</div>
+            </div>
+          </div>
+          
+          <div style="padding: var(--space-4); border-left: 4px solid var(--color-gold); background: var(--color-background);">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <div style="font-weight: 600; color: var(--color-gold);">🎫 Event Booked</div>
+                <div style="color: var(--color-text-muted); font-size: 0.9rem;">June 13 Launch Event - 50% member discount applied</div>
+              </div>
+              <div style="color: var(--color-text-muted); font-size: 0.8rem;">3 days ago</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Support Section -->
+  <section class="section section--alt">
+    <div class="container">
+      <h2 class="section-title">Need Help?</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-6);">
+        <div class="card" style="padding: var(--space-6); text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: var(--space-2);">💬</div>
+          <h3 style="margin-bottom: var(--space-2);">Member Support</h3>
+          <p style="color: var(--color-text-muted); margin-bottom: var(--space-3);">Get help with your membership benefits and access</p>
+          <a href="contact.html" class="btn btn--primary" style="width: 100%;">Contact Support</a>
+        </div>
+        
+        <div class="card" style="padding: var(--space-6); text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: var(--space-2);">📚</div>
+          <h3 style="margin-bottom: var(--space-2);">Member Resources</h3>
+          <p style="color: var(--color-text-muted); margin-bottom: var(--space-3);">Guides, tutorials, and best practices</p>
+          <a href="#" class="btn btn--accent" style="width: 100%;">View Resources</a>
+        </div>
+        
+        <div class="card" style="padding: var(--space-6); text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: var(--space-2);">🤝</div>
+          <h3 style="margin-bottom: var(--space-2);">Community Forum</h3>
+          <p style="color: var(--color-text-muted); margin-bottom: var(--space-3);">Connect with other members</p>
+          <a href="#" class="btn btn--outline" style="width: 100%;">Join Forum</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-col-title">Green Africa Hub</p>
+          <ul class="footer-links" role="list">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="sustainability-impact.html">Sustainability Impact</a></li>
+            <li><a href="analytics.html">AI Analytics</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-title">Navigation</p>
+          <ul class="footer-links" role="list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="membership.html">Membership</a></li>
+            <li><a href="events-2026.html">2026 Events</a></li>
+            <li><a href="cookbook.html">Cookbook</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-title">Members</p>
+          <ul class="footer-links" role="list">
+            <li><a href="member-dashboard.html">Dashboard</a></li>
+            <li><a href="ai-dashboard.html">AI Dashboard</a></li>
+            <li><a href="login.html">Sign In</a></li>
+            <li><a href="signup.html">Create Account</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-title">Contact</p>
+          <ul class="footer-links" role="list">
+            <li><a href="mailto:g.omotuase@greenafricahub.org.uk">g.omotuase@greenafricahub.org.uk</a></li>
+            <li><a href="tel:07776643169">07776 643169</a></li>
+            <li><a href="contact.html">Send a Message</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr class="footer-divider">
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 Green Africa Hub Ltd. All rights reserved. Smart-Prep Methodology™ is proprietary intellectual property.</p>
+        <div class="footer-attribution">
+          <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer">Created with Perplexity Computer</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="shared.js"></script>
+  <script>
+    // Set membership tier based on URL parameter or default
+    function setMembershipTier() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const tier = urlParams.get('tier') || 'pro';
+      
+      const tierElement = document.getElementById('membership-tier');
+      const statusElement = document.getElementById('membership-status');
+      
+      const tierConfig = {
+        'basic': {
+          name: 'Basic Membership',
+          price: '£30',
+          period: 'per month',
+          status: 'Active • Member since March 2026'
+        },
+        'pro': {
+          name: 'Pro Membership',
+          price: '£50',
+          period: 'per month',
+          status: 'Active • Member since March 2026'
+        },
+        'premium': {
+          name: 'Premium Membership',
+          price: '£200',
+          period: 'per month',
+          status: 'Active • Member since March 2026'
+        }
+      };
+      
+      if (tierConfig[tier]) {
+        tierElement.textContent = tierConfig[tier].name;
+        statusElement.textContent = tierConfig[tier].status;
+        
+        // Update price display
+        const priceContainer = document.querySelector('.nav-actions').previousElementSibling;
+        if (priceContainer) {
+          priceContainer.querySelector('div').textContent = tierConfig[tier].price;
+          priceContainer.querySelector('div:last-child').textContent = tierConfig[tier].period;
+        }
+      }
+    }
+    
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', setMembershipTier);
+  </script>
+</body>
+</html>

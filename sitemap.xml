@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://www.greenafricahub.org.uk/</loc>
+    <lastmod>2026-04-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.greenafricahub.org.uk/hero_main.png</image:loc>
+      <image:title>Green Africa Hub - Sustainable African Caribbean Cooking</image:loc>
+      <image:caption>Green Africa Hub Bristol - Smart Kitchen Centre for African Caribbean Communities</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- About Page -->
+  <url>
+    <loc>https://www.greenafricahub.org.uk/about.html</loc>
+    <lastmod>2026-04-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Services Page -->
+  <url>
+    <loc>https://www.greenafricahub.org.uk/services.html</loc>
+    <lastmod>2026-04-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- AI Dashboard -->
+  <url>
+    <loc>https://www.greenafricahub.org.uk/dashboard.html</loc>
+    <lastmod>2026-04-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Cookbook -->
+  <url>
+    <loc>https://www.greenafricahub.org.uk/cookbook-secure.html</loc>
+    <lastmod>2026-04-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- Events -->
+  <url>
+    <loc>https://www.greenafricahub.org.uk/events-2026.html</loc>
+    <lastmod>2026-04-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Membership -->
+  <url>
+    <loc>https://www.greenafricahub.org.uk/members.html</loc>
+    <lastmod>2026-04-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Payment -->
+  <url>
+    <loc>https://www.greenafricahub.org.uk/payment.html</loc>
+    <lastmod>2026-04-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- Contact -->
+  <url>
+    <loc>https://www.greenafricahub.org.uk/contact.html</loc>
+    <lastmod>2026-04-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Signup -->
+  <url>
+    <loc>https://www.greenafricahub.org.uk/signup.html</loc>
+    <lastmod>2026-04-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- Login -->
+  <url>
+    <loc>https://www.greenafricahub.org.uk/login.html</loc>
+    <lastmod>2026-04-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <!-- Privacy Policy -->
+  <url>
+    <loc>https://www.greenafricahub.org.uk/privacy.html</loc>
+    <lastmod>2026-04-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  
+  <!-- Terms & Conditions -->
+  <url>
+    <loc>https://www.greenafricahub.org.uk/terms.html</loc>
+    <lastmod>2026-04-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  
+  <!-- Cookie Policy -->
+  <url>
+    <loc>https://www.greenafricahub.org.uk/cookies.html</loc>
+    <lastmod>2026-04-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  
+  <!-- Careers -->
+  <url>
+    <loc>https://www.greenafricahub.org.uk/careers.html</loc>
+    <lastmod>2026-04-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+</urlset>

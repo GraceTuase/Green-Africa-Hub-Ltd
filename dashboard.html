@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Smart-Prep Dashboard — Green Africa Hub Ltd</title>
+<meta name="description" content="AI-powered carbon analytics dashboard for African Caribbean cooking - Scope 1 & 3 carbon calculation, carbon badges, and green swap recommendations.">
+<meta property="og:title" content="AI Smart-Prep Dashboard — Green Africa Hub Ltd">
+<meta property="og:description" content="Carbon analytics dashboard for sustainable cooking with Python, Scikit-learn, and Power BI integration.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="hero_main.png">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500,600,700,800&f[]=work-sans@300,400,500,600,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+
+<!-- ══ NAVIGATION ══ -->
+<nav class="site-nav" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Green Africa Hub Home">
+        <img src="logo.jpg" alt="Green Africa Hub Logo" width="40" height="40">
+      </a>
+      <ul class="nav-menu" role="list">
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="members.html" class="btn btn--primary btn--sm">Members</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="hero hero--compact">
+  <div class="container">
+    <div class="hero-content">
+      <h1 class="hero-title">🤖 AI Smart-Prep Dashboard</h1>
+      <p class="hero-subtitle">First UK data analytics tool for carbon accountability in African Caribbean community cooking</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ DASHBOARD ACCESS ══ -->
+<section class="section">
+  <div class="container">
+    <div style="text-align: center; margin-bottom: var(--space-8);">
+      <div style="background: linear-gradient(135deg, var(--color-success), var(--color-accent)); color: white; padding: var(--space-6); border-radius: var(--radius-lg);">
+        <h2 style="margin-bottom: var(--space-4); font-size: 1.5rem;">🔬 Carbon Analytics Suite</h2>
+        <p style="margin-bottom: var(--space-4); font-size: 1.1rem;">Built in Python, Scikit-learn & Power BI for Afro-Caribbean micro-caterers</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-4); margin-bottom: var(--space-4);">
+          <div style="background: rgba(255,255,255,0.2); padding: var(--space-3); border-radius: var(--radius-md);">
+            <div style="font-size: 2rem; margin-bottom: var(--space-2);">📊</div>
+            <h3 style="margin-bottom: var(--space-2);">Scope 1 & 3 Carbon</h3>
+            <p style="margin: 0; font-size: 0.9rem;">Dish-level carbon calculation</p>
+          </div>
+          <div style="background: rgba(255,255,255,0.2); padding: var(--space-3); border-radius: var(--radius-md);">
+            <div style="font-size: 2rem; margin-bottom: var(--space-2);">🏅</div>
+            <h3 style="margin-bottom: var(--space-2);">Carbon Badges</h3>
+            <p style="margin: 0; font-size: 0.9rem;">Professional certification</p>
+          </div>
+          <div style="background: rgba(255,255,255,0.2); padding: var(--space-3); border-radius: var(--radius-md);">
+            <div style="font-size: 2rem; margin-bottom: var(--space-2);">🌱</div>
+            <h3 style="margin-bottom: var(--space-2);">Green Swaps</h3>
+            <p style="margin: 0; font-size: 0.9rem;">Culturally appropriate alternatives</p>
+          </div>
+        </div>
+        <p style="margin-bottom: var(--space-4); font-size: 1rem;">Same carbon visibility used by large food manufacturers for Net Zero procurement, at a fraction of the cost.</p>
+        <div style="background: rgba(255,255,255,0.3); padding: var(--space-3); border-radius: var(--radius-md); display: inline-block;">
+          <p style="margin: 0; font-weight: 600;">📜 Smart-Prep Methodology™ - BIPC-registered (2 April 2026)</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Membership Access Check -->
+    <div id="accessCheck" style="background: var(--color-surface); border-radius: var(--radius-lg); padding: var(--space-6); margin-bottom: var(--space-6); box-shadow: var(--shadow-sm);">
+      <h3 style="margin-bottom: var(--space-4); color: var(--color-primary);">🔐 Dashboard Access</h3>
+      <div id="accessContent">
+        <!-- Content will be loaded based on membership status -->
+      </div>
+    </div>
+
+    <!-- Dashboard Preview -->
+    <div id="dashboardPreview" style="display: none;">
+      <h3 style="margin-bottom: var(--space-4); color: var(--color-primary);">📈 Dashboard Preview</h3>
+      
+      <!-- Carbon Calculator Section -->
+      <div style="background: var(--color-surface); border-radius: var(--radius-lg); padding: var(--space-6); margin-bottom: var(--space-6); box-shadow: var(--shadow-sm);">
+        <h4 style="margin-bottom: var(--space-3); color: var(--color-success);">🔥 Carbon Calculator</h4>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-6); margin-bottom: var(--space-4);">
+          <div>
+            <label for="dishName" style="display: block; margin-bottom: var(--space-2); font-weight: 600; color: var(--color-text);">Dish Name</label>
+            <input type="text" id="dishName" placeholder="e.g., Jollof Rice" style="width: 100%; padding: var(--space-3); border: 2px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-background); color: var(--color-text); font-size: 1rem;">
+          </div>
+          <div>
+            <label for="servingSize" style="display: block; margin-bottom: var(--space-2); font-weight: 600; color: var(--color-text);">Serving Size</label>
+            <input type="number" id="servingSize" placeholder="e.g., 4" style="width: 100%; padding: var(--space-3); border: 2px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-background); color: var(--color-text); font-size: 1rem;">
+          </div>
+          <div>
+            <label for="cookingMethod" style="display: block; margin-bottom: var(--space-2); font-weight: 600; color: var(--color-text);">Cooking Method</label>
+            <select id="cookingMethod" style="width: 100%; padding: var(--space-3); border: 2px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-background); color: var(--color-text); font-size: 1rem;">
+              <option value="gas">Gas Hob</option>
+              <option value="induction">Electric Induction</option>
+              <option value="electric">Electric Hob</option>
+              <option value="oven">Oven</option>
+            </select>
+          </div>
+        </div>
+        <button onclick="calculateCarbon()" class="btn btn--accent" style="width: 100%;">Calculate Carbon Footprint</button>
+      </div>
+
+      <!-- Results Section -->
+      <div id="carbonResults" style="display: none; background: var(--color-surface); border-radius: var(--radius-lg); padding: var(--space-6); margin-bottom: var(--space-6); box-shadow: var(--shadow-sm);">
+        <h4 style="margin-bottom: var(--space-3); color: var(--color-success);">📊 Carbon Analysis Results</h4>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-6);">
+          <div style="text-align: center; padding: var(--space-4); background: var(--color-warning-highlight); border-radius: var(--radius-md); border: 2px solid var(--color-warning);">
+            <div style="font-size: 2rem; margin-bottom: var(--space-2);">🔥</div>
+            <h5 style="margin-bottom: var(--space-2); color: var(--color-text); font-weight: 600;">Scope 1 Carbon</h5>
+            <div id="scope1Result" style="font-size: 1.5rem; font-weight: 700; color: var(--color-warning);">0.0 kg CO₂</div>
+          </div>
+          <div style="text-align: center; padding: var(--space-4); background: var(--color-primary-highlight); border-radius: var(--radius-md); border: 2px solid var(--color-primary);">
+            <div style="font-size: 2rem; margin-bottom: var(--space-2);">⚡</div>
+            <h5 style="margin-bottom: var(--space-2); color: var(--color-text); font-weight: 600;">Scope 3 Carbon</h5>
+            <div id="scope3Result" style="font-size: 1.5rem; font-weight: 700; color: var(--color-primary);">0.0 kg CO₂</div>
+          </div>
+          <div style="text-align: center; padding: var(--space-4); background: var(--color-success-highlight); border-radius: var(--radius-md); border: 2px solid var(--color-success);">
+            <div style="font-size: 2rem; margin-bottom: var(--space-2);">🏅</div>
+            <h5 style="margin-bottom: var(--space-2); color: var(--color-text); font-weight: 600;">Carbon Badge</h5>
+            <div id="carbonBadge" style="font-size: 1.2rem; font-weight: 700; color: var(--color-success);">Calculating...</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Green Swaps Section -->
+      <div id="greenSwaps" style="display: none; background: var(--color-surface); border-radius: var(--radius-lg); padding: var(--space-6); margin-bottom: var(--space-6); box-shadow: var(--shadow-sm);">
+        <h4 style="margin-bottom: var(--space-3); color: var(--color-success);">🌱 Green Swap Recommendations</h4>
+        <div id="swapList" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--space-6);">
+          <!-- Swaps will be populated dynamically -->
+        </div>
+      </div>
+
+      <!-- Analytics Chart -->
+      <div style="background: var(--color-surface); border-radius: var(--radius-lg); padding: var(--space-6); margin-bottom: var(--space-6); box-shadow: var(--shadow-sm);">
+        <h4 style="margin-bottom: var(--space-3); color: var(--color-success);">📈 Carbon Analytics</h4>
+        <div style="position: relative; height: 400px;">
+          <canvas id="carbonChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PRICING TIERS ══ -->
+<section class="section section--alt">
+  <div class="container">
+    <div style="text-align: center; margin-bottom: var(--space-8);">
+      <h2 style="margin-bottom: var(--space-4);">💰 AI Analytics Suite Pricing</h2>
+      <p style="margin-bottom: var(--space-6); font-size: 1.1rem;">Choose your carbon analytics access level</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-6);">
+        <!-- Basic Analytics -->
+        <div class="card" style="border: 2px solid var(--color-success);">
+          <div style="text-align: center; margin-bottom: var(--space-4);">
+            <h3 style="color: var(--color-success); margin-bottom: var(--space-2);">Basic Analytics</h3>
+            <div style="font-size: 2rem; font-weight: 700; color: var(--color-success);">£49</div>
+            <p style="color: var(--color-text-muted);">per month</p>
+          </div>
+          <ul style="margin-bottom: var(--space-4); padding-left: var(--space-4);">
+            <li>✅ Basic carbon calculator</li>
+            <li>✅ Scope 1 & 3 calculation</li>
+            <li>✅ Monthly reports</li>
+            <li>✅ Email support</li>
+          </ul>
+          <button onclick="selectPlan('basic')" class="btn btn--primary" style="width: 100%; background: var(--color-success); border-color: var(--color-success);">Choose Basic</button>
+        </div>
+
+        <!-- Pro Analytics -->
+        <div class="card" style="border: 2px solid var(--color-primary);">
+          <div style="text-align: center; margin-bottom: var(--space-4);">
+            <div style="background: var(--color-primary); color: white; padding: 4px 12px; border-radius: 12px; font-size: 0.8rem; margin-bottom: var(--space-2);">Most Popular</div>
+            <h3 style="color: var(--color-primary); margin-bottom: var(--space-2);">Pro Analytics</h3>
+            <div style="font-size: 2rem; font-weight: 700; color: var(--color-primary);">£149</div>
+            <p style="color: var(--color-text-muted);">per month</p>
+          </div>
+          <ul style="margin-bottom: var(--space-4); padding-left: var(--space-4);">
+            <li>✅ Everything in Basic, plus:</li>
+            <li>✅ Advanced AI predictions</li>
+            <li>✅ Green swap recommendations</li>
+            <li>✅ Carbon badge generation</li>
+            <li>✅ Power BI integration</li>
+            <li>✅ Priority support</li>
+          </ul>
+          <button onclick="selectPlan('pro')" class="btn btn--primary" style="width: 100%; background: var(--color-primary); border-color: var(--color-primary);">Choose Pro</button>
+        </div>
+
+        <!-- Enterprise Analytics -->
+        <div class="card" style="border: 2px solid var(--color-gold);">
+          <div style="text-align: center; margin-bottom: var(--space-4);">
+            <h3 style="color: var(--color-gold); margin-bottom: var(--space-2);">Enterprise Analytics</h3>
+            <div style="font-size: 2rem; font-weight: 700; color: var(--color-gold);">£299</div>
+            <p style="color: var(--color-text-muted);">per month</p>
+          </div>
+          <ul style="margin-bottom: var(--space-4); padding-left: var(--space-4);">
+            <li>✅ Everything in Pro, plus:</li>
+            <li>✅ Unlimited dishes</li>
+            <li>✅ Custom AI models</li>
+            <li>✅ API access</li>
+            <li>✅ White-label options</li>
+            <li>✅ Dedicated support</li>
+          </ul>
+          <button onclick="selectPlan('enterprise')" class="btn btn--accent" style="width: 100%; background: var(--color-gold); border: none;">Choose Enterprise</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Green Africa Hub</h4>
+        <p>Promoting sustainable cooking in African Caribbean communities through electric induction technology.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="events-2026.html">Events</a></li>
+          <li><a href="members.html">Members</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Analytics</h4>
+        <ul>
+          <li><a href="dashboard.html">AI Dashboard</a></li>
+          <li><a href="payment.html">Upgrade Access</a></li>
+          <li><a href="contact.html">API Access</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms & Conditions</a></li>
+          <li><a href="cookies.html">Cookie Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Green Africa Hub. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="shared.js"></script>
+<script>
+// Membership and Dashboard Logic
+let currentUser = null;
+let membershipTier = null;
+
+// Check user authentication and membership
+function checkUserAccess() {
+  // In production, this would check with your backend
+  const userToken = localStorage.getItem('userToken');
+  const membershipData = localStorage.getItem('membershipData');
+  
+  if (userToken && membershipData) {
+    currentUser = JSON.parse(userToken);
+    membershipTier = JSON.parse(membershipData).tier;
+    showDashboardAccess();
+  } else {
+    showAccessRequired();
+  }
+}
+
+function showDashboardAccess() {
+  const accessContent = document.getElementById('accessContent');
+  const dashboardPreview = document.getElementById('dashboardPreview');
+  
+  if (membershipTier === 'premium' || membershipTier === 'enterprise') {
+    accessContent.innerHTML = `
+      <div style="background: var(--color-success-highlight); border-left: 4px solid var(--color-success); padding: var(--space-4); border-radius: var(--radius-md);">
+        <h4 style="color: var(--color-success); margin-bottom: var(--space-2);">✅ Full Dashboard Access</h4>
+        <p style="margin: 0;">Welcome back! You have full access to the AI Smart-Prep Dashboard with all features enabled.</p>
+      </div>
+    `;
+    dashboardPreview.style.display = 'block';
+    initializeDashboard();
+  } else if (membershipTier === 'pro') {
+    accessContent.innerHTML = `
+      <div style="background: var(--color-warning-highlight); border-left: 4px solid var(--color-warning); padding: var(--space-4); border-radius: var(--radius-md);">
+        <h4 style="color: var(--color-warning); margin-bottom: var(--space-2);">⚠️ Limited Dashboard Access</h4>
+        <p style="margin: 0;">You have access to basic dashboard features. Upgrade to Premium or Enterprise for full AI analytics suite.</p>
+      </div>
+    `;
+    dashboardPreview.style.display = 'block';
+    initializeDashboard();
+  } else {
+    accessContent.innerHTML = `
+      <div style="background: var(--color-error-highlight); border-left: 4px solid var(--color-error); padding: var(--space-4); border-radius: var(--radius-md);">
+        <h4 style="color: var(--color-error); margin-bottom: var(--space-2);">🔒 Dashboard Access Required</h4>
+        <p style="margin: 0;">You need an AI Analytics subscription to access the Smart-Prep Dashboard. Choose a plan below to get started.</p>
+      </div>
+      <div style="text-align: center; margin-top: var(--space-4);">
+        <a href="payment.html?product=ai-analytics-basic" class="btn btn--primary">Get AI Analytics Access</a>
+      </div>
+    `;
+  }
+}
+
+function showAccessRequired() {
+  const accessContent = document.getElementById('accessContent');
+  accessContent.innerHTML = `
+    <div style="background: var(--color-error-highlight); border-left: 4px solid var(--color-error); padding: var(--space-4); border-radius: var(--radius-md);">
+      <h4 style="color: var(--color-error); margin-bottom: var(--space-2);">🔒 Authentication Required</h4>
+      <p style="margin: 0;">Please log in or sign up to access the AI Smart-Prep Dashboard.</p>
+    </div>
+    <div style="text-align: center; margin-top: var(--space-4);">
+      <a href="login.html" class="btn btn--primary" style="margin-right: var(--space-2);">Log In</a>
+      <a href="signup.html" class="btn btn--accent">Sign Up</a>
+    </div>
+  `;
+}
+
+// Dashboard Functions
+function initializeDashboard() {
+  // Initialize chart
+  const ctx = document.getElementById('carbonChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+      datasets: [{
+        label: 'Scope 1 Carbon (kg CO₂)',
+        data: [12, 19, 15, 25, 22, 30],
+        borderColor: 'rgb(255, 99, 132)',
+        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        tension: 0.1
+      }, {
+        label: 'Scope 3 Carbon (kg CO₂)',
+        data: [8, 12, 10, 18, 15, 22],
+        borderColor: 'rgb(54, 162, 235)',
+        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+        tension: 0.1
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        title: {
+          display: true,
+          text: 'Carbon Footprint Trends'
+        }
+      }
+    }
+  });
+}
+
+function calculateCarbon() {
+  const dishName = document.getElementById('dishName').value;
+  const servingSize = document.getElementById('servingSize').value;
+  const cookingMethod = document.getElementById('cookingMethod').value;
+  
+  if (!dishName || !servingSize) {
+    alert('Please enter dish name and serving size');
+    return;
+  }
+  
+  // Simulate carbon calculation (in production, this would call your Python backend)
+  const scope1Carbon = calculateScope1(cookingMethod, servingSize);
+  const scope3Carbon = calculateScope3(dishName, servingSize);
+  const totalCarbon = scope1Carbon + scope3Carbon;
+  
+  // Show results
+  document.getElementById('scope1Result').textContent = `${scope1Carbon.toFixed(1)} kg CO₂`;
+  document.getElementById('scope3Result').textContent = `${scope3Carbon.toFixed(1)} kg CO₂`;
+  document.getElementById('carbonBadge').textContent = getCarbonBadge(totalCarbon);
+  
+  document.getElementById('carbonResults').style.display = 'block';
+  document.getElementById('greenSwaps').style.display = 'block';
+  
+  // Generate green swaps
+  generateGreenSwaps(dishName, cookingMethod);
+}
+
+function calculateScope1(method, servings) {
+  const baseRates = {
+    gas: 0.8,
+    induction: 0.3,
+    electric: 0.6,
+    oven: 1.2
+  };
+  return baseRates[method] * servings;
+}
+
+function calculateScope3(dish, servings) {
+  // Simulate ingredient carbon calculation
+  const dishRates = {
+    'jollof rice': 0.4,
+    'jerk chicken': 0.6,
+    'curry goat': 0.5,
+    'default': 0.3
+  };
+  const normalizedDish = dish.toLowerCase();
+  return (dishRates[normalizedDish] || dishRates['default']) * servings;
+}
+
+function getCarbonBadge(totalCarbon) {
+  if (totalCarbon < 2) return '🌱 Green';
+  if (totalCarbon < 4) return '🟡 Yellow';
+  return '🔴 Red';
+}
+
+function generateGreenSwaps(dish, method) {
+  const swaps = [
+    {
+      original: 'Gas Hob Cooking',
+      alternative: 'Electric Induction',
+      savings: '60% energy reduction',
+      cultural: 'Maintains traditional cooking techniques'
+    },
+    {
+      original: 'Beef Protein',
+      alternative: 'Plant-Based Options',
+      savings: '70% carbon reduction',
+      cultural: 'Uses traditional African vegetables and legumes'
+    }
+  ];
+  
+  const swapList = document.getElementById('swapList');
+  swapList.innerHTML = swaps.map(swap => `
+    <div style="background: var(--color-background); padding: var(--space-4); border-radius: var(--radius-md); border-left: 4px solid var(--color-success); border: 1px solid var(--color-border);">
+      <h5 style="color: var(--color-success); margin-bottom: var(--space-2); font-weight: 600;">🌱 ${swap.alternative}</h5>
+      <p style="color: var(--color-text); margin-bottom: var(--space-2);"><strong>Instead of:</strong> ${swap.original}</p>
+      <p style="color: var(--color-text); margin-bottom: var(--space-2);"><strong>Savings:</strong> ${swap.savings}</p>
+      <p style="color: var(--color-text); margin: 0;"><strong>Cultural Note:</strong> ${swap.cultural}</p>
+    </div>
+  `).join('');
+}
+
+function selectPlan(plan) {
+  // Redirect to payment with selected plan
+  window.location.href = `payment.html?product=ai-analytics-${plan}`;
+}
+
+// Check access on page load
+document.addEventListener('DOMContentLoaded', function() {
+  checkUserAccess();
+});
+</script>
+</body>
+</html>

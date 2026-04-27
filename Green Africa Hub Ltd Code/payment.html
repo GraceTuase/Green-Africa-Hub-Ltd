@@ -18,9 +18,9 @@
 <link rel="author" href="https://www.perplexity.ai/computer">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Payment & Checkout — Green Africa Hub Ltd</title>
-<meta name="description" content="Secure payment for Green Africa Hub Ltd memberships, cookbooks, workshops, and sustainability consultancy services.">
-<meta property="og:title" content="Payment & Checkout — Green Africa Hub Ltd">
+<title>Payment & Checkout — Green Africa Hub</title>
+<meta name="description" content="Secure payment for Green Africa Hub memberships, cookbooks, workshops, and sustainability consultancy services.">
+<meta property="og:title" content="Payment & Checkout — Green Africa Hub">
 <meta property="og:description" content="Secure payment for memberships, cookbooks, workshops, and sustainability services.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="hero_main.png">
@@ -30,22 +30,6 @@
 <script src="https://js.stripe.com/v3/"></script>
 </head>
 <body>
-
-<!-- ══ COOKIE CONSENT BANNER ══ -->
-<div id="cookieConsent" style="position: fixed; top: 0; left: 0; right: 0; background: linear-gradient(135deg, var(--color-primary), var(--color-accent)); color: white; padding: var(--space-4); z-index: 9999; box-shadow: 0 4px 20px rgba(0,0,0,0.3);">
-  <div class="container">
-    <div style="display: flex; justify-content: space-between; align-items: center; gap: var(--space-4);">
-      <div style="flex: 1;">
-        <h4 style="margin-bottom: var(--space-2); font-size: 1rem;">🍪 Cookie Consent</h4>
-        <p style="margin: 0; font-size: 0.9rem; line-height: 1.4;">We use cookies to enhance your experience, analyze traffic, and personalize content. Essential cookies are required for basic functionality.</p>
-      </div>
-      <div style="display: flex; gap: var(--space-3); flex-shrink: 0;">
-        <button onclick="rejectCookies()" style="background: rgba(255,255,255,0.2); color: white; border: 1px solid rgba(255,255,255,0.3); padding: var(--space-2) var(--space-4); border-radius: var(--radius-md); cursor: pointer; font-size: 0.9rem; white-space: nowrap;">Reject Non-Essential</button>
-        <button onclick="acceptCookies()" style="background: white; color: var(--color-primary); border: none; padding: var(--space-2) var(--space-4); border-radius: var(--radius-md); cursor: pointer; font-weight: 600; font-size: 0.9rem; white-space: nowrap;">Accept All</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 <!-- ══ NAVIGATION ══ -->
 <nav class="site-nav" role="navigation" aria-label="Main navigation">
@@ -101,53 +85,31 @@
                 <input type="radio" name="product" value="basic-monthly" style="margin-right: var(--space-3);" onchange="updatePrice()">
                 <div style="flex: 1;">
                   <div style="font-weight: 600; color: var(--color-primary);">Basic Membership - Monthly</div>
-                  <div style="color: var(--color-text-muted); font-size: 0.9rem;">£30/month • 11 recipes • Bi-weekly buffet • Bulk sharing</div>
+                  <div style="color: var(--color-text-muted); font-size: 0.9rem;">£10/month • 11 recipes • Video access</div>
+                </div>
+              </label>
+              
+              <label class="product-option" style="display: flex; align-items: center; padding: var(--space-3); border: 2px solid var(--color-border); border-radius: var(--radius-md); cursor: pointer; transition: all 0.3s ease;">
+                <input type="radio" name="product" value="basic-annual" style="margin-right: var(--space-3);" onchange="updatePrice()">
+                <div style="flex: 1;">
+                  <div style="font-weight: 600; color: var(--color-primary);">Basic Membership - Annual</div>
+                  <div style="color: var(--color-text-muted); font-size: 0.9rem;">£100/year • Save 17% • Best value</div>
                 </div>
               </label>
               
               <label class="product-option" style="display: flex; align-items: center; padding: var(--space-3); border: 2px solid var(--color-accent); border-radius: var(--radius-md); cursor: pointer; transition: all 0.3s ease;">
-                <input type="radio" name="product" value="pro-monthly" style="margin-right: var(--space-3);" onchange="updatePrice()">
+                <input type="radio" name="product" value="micro-caterer-monthly" style="margin-right: var(--space-3);" onchange="updatePrice()">
                 <div style="flex: 1;">
-                  <div style="font-weight: 600; color: var(--color-accent);">Pro Membership - Monthly</div>
-                  <div style="color: var(--color-text-muted); font-size: 0.9rem;">£50/month • 50 recipes • AI dashboard • Carbon tools</div>
+                  <div style="font-weight: 600; color: var(--color-accent);">Micro-Caterer - Monthly</div>
+                  <div style="color: var(--color-text-muted); font-size: 0.9rem;">£50/month • 50+ recipes • PDF cookbook</div>
                 </div>
               </label>
               
               <label class="product-option" style="display: flex; align-items: center; padding: var(--space-3); border: 2px solid var(--color-gold); border-radius: var(--radius-md); cursor: pointer; transition: all 0.3s ease;">
-                <input type="radio" name="product" value="premium-quarterly" style="margin-right: var(--space-3);" onchange="updatePrice()">
+                <input type="radio" name="product" value="premium-monthly" style="margin-right: var(--space-3);" onchange="updatePrice()">
                 <div style="flex: 1;">
-                  <div style="font-weight: 600; color: var(--color-gold);">Premium Membership - Quarterly</div>
-                  <div style="color: var(--color-text-muted); font-size: 0.9rem;">£600/quarter • Masterclasses • Partnerships • Business consulting</div>
-                </div>
-              </label>
-            </div>
-          </div>
-
-          <!-- AI Analytics Options -->
-          <div class="product-category">
-            <h4 style="margin-bottom: var(--space-3); color: var(--color-text);">🤖 AI Analytics Suite</h4>
-            <div style="display: grid; gap: var(--space-3);">
-              <label class="product-option" style="display: flex; align-items: center; padding: var(--space-3); border: 2px solid var(--color-primary); border-radius: var(--radius-md); cursor: pointer; transition: all 0.3s ease;">
-                <input type="radio" name="product" value="ai-analytics-basic" style="margin-right: var(--space-3);" onchange="updatePrice()">
-                <div style="flex: 1;">
-                  <div style="font-weight: 600; color: var(--color-primary);">Basic Analytics</div>
-                  <div style="color: var(--color-text-muted); font-size: 0.9rem;">£49/month • Carbon calculator • Scope 1&3 • Monthly reports</div>
-                </div>
-              </label>
-              
-              <label class="product-option" style="display: flex; align-items: center; padding: var(--space-3); border: 2px solid var(--color-accent); border-radius: var(--radius-md); cursor: pointer; transition: all 0.3s ease;">
-                <input type="radio" name="product" value="ai-analytics-pro" style="margin-right: var(--space-3);" onchange="updatePrice()">
-                <div style="flex: 1;">
-                  <div style="font-weight: 600; color: var(--color-accent);">Pro Analytics</div>
-                  <div style="color: var(--color-text-muted); font-size: 0.9rem;">£149/month • AI predictions • Green swaps • Carbon badges • Power BI</div>
-                </div>
-              </label>
-              
-              <label class="product-option" style="display: flex; align-items: center; padding: var(--space-3); border: 2px solid var(--color-gold); border-radius: var(--radius-md); cursor: pointer; transition: all 0.3s ease;">
-                <input type="radio" name="product" value="ai-analytics-enterprise" style="margin-right: var(--space-3);" onchange="updatePrice()">
-                <div style="flex: 1;">
-                  <div style="font-weight: 600; color: var(--color-gold);">Enterprise Analytics</div>
-                  <div style="color: var(--color-text-muted); font-size: 0.9rem;">£299/month • Unlimited dishes • Custom AI • API access • White-label</div>
+                  <div style="font-weight: 600; color: var(--color-gold);">Premium - Monthly</div>
+                  <div style="color: var(--color-text-muted); font-size: 0.9rem;">£150/month • All services • Hard copy cookbook</div>
                 </div>
               </label>
             </div>
@@ -155,29 +117,21 @@
 
           <!-- Cookbook Options -->
           <div class="product-category">
-            <h4 style="margin-bottom: var(--space-3); color: var(--color-text);">📖 Smart-Prep Cookbook</h4>
+            <h4 style="margin-bottom: var(--space-3); color: var(--color-text);">Cookbook</h4>
             <div style="display: grid; gap: var(--space-3);">
-              <label class="product-option" style="display: flex; align-items: center; padding: var(--space-3); border: 2px solid var(--color-primary); border-radius: var(--radius-md); cursor: pointer; transition: all 0.3s ease;">
+              <label class="product-option" style="display: flex; align-items: center; padding: var(--space-3); border: 2px solid var(--color-border); border-radius: var(--radius-md); cursor: pointer; transition: all 0.3s ease;">
                 <input type="radio" name="product" value="cookbook-digital" style="margin-right: var(--space-3);" onchange="updatePrice()">
                 <div style="flex: 1;">
-                  <div style="font-weight: 600; color: var(--color-primary);">Digital Cookbook Access</div>
-                  <div style="color: var(--color-text-muted); font-size: 0.9rem;">£15 • Secure online access • 11 recipes • DRM protected</div>
+                  <div style="font-weight: 600; color: var(--color-primary);">Digital Cookbook</div>
+                  <div style="color: var(--color-text-muted); font-size: 0.9rem;">£10 • Instant download • 50+ recipes</div>
                 </div>
               </label>
               
-              <label class="product-option" style="display: flex; align-items: center; padding: var(--space-3); border: 2px solid var(--color-accent); border-radius: var(--radius-md); cursor: pointer; transition: all 0.3s ease;">
+              <label class="product-option" style="display: flex; align-items: center; padding: var(--space-3); border: 2px solid var(--color-border); border-radius: var(--radius-md); cursor: pointer; transition: all 0.3s ease;">
                 <input type="radio" name="product" value="cookbook-hardcopy" style="margin-right: var(--space-3);" onchange="updatePrice()">
                 <div style="flex: 1;">
-                  <div style="font-weight: 600; color: var(--color-accent);">Hard Copy Cookbook</div>
-                  <div style="color: var(--color-text-muted); font-size: 0.9rem;">£45 • Physical book • Free UK shipping • Amazon ready</div>
-                </div>
-              </label>
-              
-              <label class="product-option" style="display: flex; align-items: center; padding: var(--space-3); border: 2px solid var(--color-gold); border-radius: var(--radius-md); cursor: pointer; transition: all 0.3s ease;">
-                <input type="radio" name="product" value="cookbook-bundle" style="margin-right: var(--space-3);" onchange="updatePrice()">
-                <div style="flex: 1;">
-                  <div style="font-weight: 600; color: var(--color-gold);">Digital + Hard Copy Bundle</div>
-                  <div style="color: var(--color-text-muted); font-size: 0.9rem;">£55 • Best value • Both formats • Save £5</div>
+                  <div style="font-weight: 600; color: var(--color-primary);">Hard Copy Cookbook</div>
+                  <div style="color: var(--color-text-muted); font-size: 0.9rem;">£25 • Free UK delivery • Premium quality</div>
                 </div>
               </label>
             </div>
@@ -191,23 +145,15 @@
                 <input type="radio" name="product" value="workshop-single" style="margin-right: var(--space-3);" onchange="updatePrice()">
                 <div style="flex: 1;">
                   <div style="font-weight: 600; color: var(--color-primary);">Single Workshop</div>
-                  <div style="color: var(--color-text-muted); font-size: 0.9rem;">£35 • One person • Bristol location • Sustainable cooking</div>
+                  <div style="color: var(--color-text-muted); font-size: 0.9rem;">£30 • One person • Bristol location</div>
                 </div>
               </label>
               
-              <label class="product-option" style="display: flex; align-items: center; padding: var(--space-3); border: 2px solid var(--color-accent); border-radius: var(--radius-md); cursor: pointer; transition: all 0.3s ease;">
+              <label class="product-option" style="display: flex; align-items: center; padding: var(--space-3); border: 2px solid var(--color-border); border-radius: var(--radius-md); cursor: pointer; transition: all 0.3s ease;">
                 <input type="radio" name="product" value="workshop-family" style="margin-right: var(--space-3);" onchange="updatePrice()">
                 <div style="flex: 1;">
-                  <div style="font-weight: 600; color: var(--color-accent);">Family Workshop</div>
-                  <div style="color: var(--color-text-muted); font-size: 0.9rem;">£75 • Up to 4 people • Family discount • Cultural heritage</div>
-                </div>
-              </label>
-              
-              <label class="product-option" style="display: flex; align-items: center; padding: var(--space-3); border: 2px solid var(--color-gold); border-radius: var(--radius-md); cursor: pointer; transition: all 0.3s ease;">
-                <input type="radio" name="product" value="workshop-group" style="margin-right: var(--space-3);" onchange="updatePrice()">
-                <div style="flex: 1;">
-                  <div style="font-weight: 600; color: var(--color-gold);">Group Workshop</div>
-                  <div style="color: var(--color-text-muted); font-size: 0.9rem;">£150 • Up to 10 people • Corporate • Team building</div>
+                  <div style="font-weight: 600; color: var(--color-primary);">Family Workshop</div>
+                  <div style="color: var(--color-text-muted); font-size: 0.9rem;">£75 • Up to 4 people • Family discount</div>
                 </div>
               </label>
             </div>
@@ -331,9 +277,9 @@
             <span>Subtotal (GBP):</span>
             <span id="subtotal">£0.00</span>
           </div>
-          <div style="display: none; justify-content: space-between; margin-bottom: var(--space-2);">
+          <div style="display: flex; justify-content: space-between; margin-bottom: var(--space-2);">
             <span>VAT (20%):</span>
-            <span id="vat" style="display: none;">£0.00</span>
+            <span id="vat">£0.00</span>
           </div>
           <div style="display: flex; justify-content: space-between; margin-bottom: var(--space-2);">
             <span>Total (GBP):</span>
@@ -380,7 +326,7 @@
         <div style="margin-bottom: var(--space-4);">
           <label style="display: flex; align-items: flex-start; cursor: pointer; line-height: 1.5;">
             <input type="checkbox" id="terms" name="terms" required style="margin-right: var(--space-2); margin-top: 4px;">
-            <span>I agree to the <a href="terms.html" target="_blank" style="color: var(--color-primary); text-decoration: underline;">Terms and Conditions</a> and <a href="privacy.html" target="_blank" style="color: var(--color-primary); text-decoration: underline;">Privacy Policy</a>. I understand that this is a secure payment transaction.</span>
+            <span>I agree to the <a href="#terms" style="color: var(--color-primary);">Terms and Conditions</a> and <a href="#privacy" style="color: var(--color-primary);">Privacy Policy</a>. I understand that this is a secure payment transaction.</span>
           </label>
         </div>
 
@@ -441,14 +387,6 @@
           <li><a href="contact.html">Send a Message</a></li>
         </ul>
       </div>
-      <div>
-        <p class="footer-col-title">Legal</p>
-        <ul class="footer-links" role="list">
-          <li><a href="privacy.html">Privacy Policy</a></li>
-          <li><a href="terms.html">Terms & Conditions</a></li>
-          <li><a href="javascript:void(0)" onclick="showCookieSettings()">Cookie Settings</a></li>
-        </ul>
-      </div>
     </div>
     <hr class="footer-divider">
     <div class="footer-bottom">
@@ -463,7 +401,7 @@
 <script src="shared.js"></script>
 <script>
 // Initialize Stripe (replace with your actual publishable key)
-const stripe = Stripe('pk_live_...UBjH'); // Replace with your live key
+const stripe = Stripe('pk_test_YOUR_STRIPE_PUBLISHABLE_KEY'); // Replace with your key
 const elements = stripe.elements();
 
 // Create card element
@@ -493,32 +431,17 @@ cardElement.on('change', ({error}) => {
 
 // Product pricing data
 const products = {
-  'basic-monthly': { name: 'Basic Membership - Monthly', price: 30, vat: false },
-  'pro-monthly': { name: 'Pro Membership - Monthly', price: 50, vat: false },
-  'pro-quarterly': { name: 'Pro Membership - Quarterly (3 months)', price: 147, vat: false },
-  'pro-halfyearly': { name: 'Pro Membership - Half-Yearly (6 months)', price: 294, vat: false },
-  'pro-annually': { name: 'Pro Membership - Annually (12 months)', price: 588, vat: false },
-  'premium-quarterly': { name: 'Premium Membership - Quarterly (3 months)', price: 600, vat: false },
-  'premium-halfyearly': { name: 'Premium Membership - Half-Yearly (6 months)', price: 1200, vat: false },
-  'premium-annually': { name: 'Premium Membership - Annually (12 months)', price: 2400, vat: false },
-  'cookbook-digital': { name: 'Digital Cookbook Access', price: 15, vat: false },
-  'cookbook-hardcopy': { name: 'Hard Copy Cookbook', price: 45, vat: false },
-  'cookbook-bundle': { name: 'Digital + Hard Copy Bundle', price: 55, vat: false },
-  'workshop-single': { name: 'Single Workshop', price: 35, vat: false, requiresQuantity: true },
-  'workshop-family': { name: 'Family Workshop', price: 75, vat: false },
-  'workshop-group': { name: 'Group Workshop', price: 150, vat: false },
-  'masterclass-individual': { name: 'Individual Masterclass', price: 500, vat: false },
-  'masterclass-business': { name: 'Business Masterclass', price: 750, vat: false },
-  'event-june-basic': { name: 'June Launch Event - Basic Member', price: 40, vat: false },
-  'event-june-pro': { name: 'June Launch Event - Pro Member', price: 25, vat: false },
-  'event-june-premium': { name: 'June Launch Event - Premium Member', price: 0, vat: false },
-  'event-december-basic': { name: 'December Detty Event - Basic Member', price: 60, vat: false },
-  'event-december-pro': { name: 'December Detty Event - Pro Member', price: 37.50, vat: false },
-  'event-december-premium': { name: 'December Detty Event - Premium Member (6+ months)', price: 0, vat: false },
-  'consultancy-sustainability': { name: 'Sustainability Consultancy', price: 0, vat: false, custom: true },
-  'ai-analytics-basic': { name: 'Basic Analytics - Monthly', price: 49, vat: false },
-  'ai-analytics-pro': { name: 'Pro Analytics - Monthly', price: 149, vat: false },
-  'ai-analytics-enterprise': { name: 'Enterprise Analytics - Monthly', price: 299, vat: false }
+  'basic-monthly': { name: 'Basic Membership - Monthly', price: 10, vat: true },
+  'basic-annual': { name: 'Basic Membership - Annual', price: 100, vat: true },
+  'micro-caterer-monthly': { name: 'Micro-Caterer Membership - Monthly', price: 50, vat: true },
+  'premium-monthly': { name: 'Premium Membership - Monthly', price: 150, vat: true },
+  'cookbook-digital': { name: 'Digital Cookbook', price: 10, vat: true },
+  'cookbook-hardcopy': { name: 'Hard Copy Cookbook', price: 25, vat: true },
+  'workshop-single': { name: 'Single Workshop', price: 30, vat: true, requiresQuantity: true },
+  'workshop-family': { name: 'Family Workshop', price: 75, vat: true },
+  'masterclass-individual': { name: 'Individual Masterclass', price: 500, vat: true },
+  'masterclass-micro': { name: 'Micro-Caterer Masterclass', price: 750, vat: true },
+  'masterclass-contact': { name: 'Large Organization Masterclass', price: 0, vat: false, custom: true }
 };
 
 // Exchange rates (these would normally come from an API)
@@ -592,9 +515,8 @@ function updatePrice() {
     document.getElementById('quantitySection').style.display = 'none';
   }
   
-  // VAT is disabled - set to 0
-  const vat = 0;
-  const total = subtotal;
+  const vat = product.vat ? subtotal * 0.2 : 0;
+  const total = subtotal + vat;
   
   document.getElementById('selectedProduct').textContent = product.name;
   document.getElementById('selectedQuantity').textContent = product.requiresQuantity ? quantity : '1';
@@ -694,42 +616,6 @@ if (productParam && products[productParam]) {
     updatePrice();
     productRadio.dispatchEvent(new Event('change'));
   }
-}
-
-// Cookie Consent Functions
-function checkCookieConsent() {
-  const consent = localStorage.getItem('cookieConsent');
-  if (!consent) {
-    document.getElementById('cookieConsent').style.display = 'block';
-  }
-}
-
-function acceptCookies() {
-  localStorage.setItem('cookieConsent', 'all');
-  localStorage.setItem('cookieConsentDate', new Date().toISOString());
-  document.getElementById('cookieConsent').style.display = 'none';
-  
-  // Here you would enable analytics cookies
-  console.log('All cookies accepted');
-}
-
-function rejectCookies() {
-  localStorage.setItem('cookieConsent', 'essential');
-  localStorage.setItem('cookieConsentDate', new Date().toISOString());
-  document.getElementById('cookieConsent').style.display = 'none';
-  
-  // Here you would disable non-essential cookies
-  console.log('Non-essential cookies rejected');
-}
-
-// Check cookie consent on page load
-document.addEventListener('DOMContentLoaded', function() {
-  checkCookieConsent();
-});
-
-// Show cookie consent settings link
-function showCookieSettings() {
-  document.getElementById('cookieConsent').style.display = 'block';
 }
 </script>
 </body>
